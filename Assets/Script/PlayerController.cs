@@ -2,15 +2,47 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float moveSpeed;
-    Vector2 input;
+    [SerializeField, Header("移動速度")]
+    private float moveSpeed;
+    [SerializeField, Header("弾オブジェクト")]
+    private GameObject _bullet;
+    [SerializeField, Header("弾を発射する時間")]
+    private float _shootTime;
 
-        void Update()
+    Vector2 _input;
+    private Rigidbody2D _rigid;
+    private float _shootCount;
+
+    private void Start()
+    {
+     _rigid = GetComponent<Rigidbody2D>();
+        _shootCount = 0;
+    }
+    void Update()
+    {
+        _Move();
+        _shootCount += Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _Shooting();
+        }
+    }
+    private void _Move()
     {
         //キーボードの入力方向に動く
-        input.x = Input.GetAxisRaw("Horizontal");
-        input.y = Input.GetAxisRaw("Vertical");
+        _input.x = Input.GetAxisRaw("Horizontal");
+        _input.y = Input.GetAxisRaw("Vertical");
 
-        transform.Translate(input.normalized * moveSpeed * Time.deltaTime);
+        transform.Translate(_input.normalized * moveSpeed * Time.deltaTime);
+    }
+
+    private void _Shooting()
+    {
+        if (_shootCount < _shootTime) return;
+
+        GameObject bulletObj = Instantiate(_bullet);
+        bulletObj.transform.position = transform.position + new Vector3(0f, transform.lossyScale.y / 2.0f, 0f);
+        _shootCount = 0.0f;
     }
 }
