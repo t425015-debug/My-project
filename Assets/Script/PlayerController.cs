@@ -20,8 +20,8 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        _Move();
-        _shootCount += Time.deltaTime;
+         _Move();
+            _shootCount += Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -35,6 +35,13 @@ public class PlayerController : MonoBehaviour
         _input.y = Input.GetAxisRaw("Vertical");
 
         transform.Translate(_input.normalized * moveSpeed * Time.deltaTime);
+
+        Vector3 pos = transform.position;
+
+        pos.x = Mathf.Clamp(pos.x, -8f, 8f);
+        pos.y = Mathf.Clamp(pos.y, -4f, 4f);
+
+        transform.position = pos;
     }
 
     private void _Shooting()
