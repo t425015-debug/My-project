@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
          _Move();
             _shootCount += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             _Shooting();
         }
