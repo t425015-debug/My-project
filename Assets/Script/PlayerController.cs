@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private GameObject _bullet;
     [SerializeField, Header("’e‚ð”­ŽË‚·‚éŽžŠÔ")]
     private float _shootTime;
+    [SerializeField, Header("‘Ì—Í")]
+    private int _hp;
 
     Vector2 _input;
     private Rigidbody2D _rigid;
@@ -51,5 +54,22 @@ public class PlayerController : MonoBehaviour
         GameObject bulletObj = Instantiate(_bullet);
         bulletObj.transform.position = transform.position + new Vector3(0f, transform.lossyScale.y / 2.0f, 0f);
         _shootCount = 0.0f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Bullet")
+        {
+            _hp -= 1;
+            if(_hp <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    public int GetHP()
+    {
+        return _hp;
     }
 }

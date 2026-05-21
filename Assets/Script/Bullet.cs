@@ -16,11 +16,19 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        Move();
+        _Move();
     }
 
-    public void Move()
+    public void _Move()
     {
         _rigid.linearVelocity = transform.up * _speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
     }
 }

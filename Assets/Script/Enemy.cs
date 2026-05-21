@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     [SerializeField, Header("’e‚ð”­ŽË‚·‚éŽžŠÔ")]
     private float _shootTime;
     [SerializeField] private GameObject _player;
+    [SerializeField, Header("‘Ì—Í")]
+    private int _hp;
 
     private float _shootCount;
 
@@ -24,6 +26,7 @@ public class Enemy : MonoBehaviour
 
     private void _Shooting()
     {
+        if (_player == null) return;
         _shootCount += Time.deltaTime;
         if (_shootCount < _shootTime) return;
 
@@ -32,5 +35,16 @@ public class Enemy : MonoBehaviour
         Vector3 dir = _player.transform.position - transform.position;
         bulletObj.transform.rotation = Quaternion.FromToRotation(transform.up, dir);
         _shootCount = 0.0f;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            _hp -= 1;
+            if (_hp <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
