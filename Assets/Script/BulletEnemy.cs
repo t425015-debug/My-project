@@ -13,11 +13,10 @@ public class BulletEnemy : Enemy
         _shootCount += Time.deltaTime;
         if (_shootCount < _shootTime) return;
 
-        GameObject bulletObj = Instantiate(_bullet);
+        GameObject bulletObj = Instantiate(_bullet[0]);
         bulletObj.transform.position = transform.position;
         Vector3 dir = _player.transform.position - transform.position;
-            bulletObj.transform.rotation = Quaternion.FromToRotation(transform.up, dir);
+        bulletObj.transform.rotation = Quaternion.FromToRotation(transform.up, dir);
         _shootCount = 0.0f;
     }
-
 }

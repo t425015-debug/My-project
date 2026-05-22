@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField, Header("弾オブジェクト")]
-    protected GameObject _bullet;
+    protected GameObject[] _bullet;
     [SerializeField, Header("弾を発射する時間")]
     protected float _shootTime;
     [SerializeField, Header("体力")]
@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     private float _moveSpeed;
 
     protected GameObject _player;
-    private Rigidbody2D _rigid;
+    protected Rigidbody2D _rigid;
     protected float _shootCount;
     protected bool _bAttack;
 
@@ -27,11 +27,18 @@ public class Enemy : MonoBehaviour
         _shootCount = 0;
         _bAttack = false;
         _rigid = GetComponent<Rigidbody2D>();
+        _Initialize();
+    }
+
+    protected virtual void _Initialize()
+    {
+
     }
 
     void Update()
     {
         _Move();
+        _Attack();
     }
 
     protected virtual void _Attack()
@@ -50,7 +57,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void _Move()
+    protected virtual void _Move()
     {
        _rigid.linearVelocity = Vector2.down * _moveSpeed;
     }
