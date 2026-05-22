@@ -18,7 +18,6 @@ public class HPIcon : MonoBehaviour
         _beforeHP = _player.GetHP();
         _hpIconList = new List<GameObject>();
         _CreateIcon();
-      //  _ShowHPIcon();
     }
 
     private void _CreateIcon()

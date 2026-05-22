@@ -8,20 +8,32 @@ public class Enemy : MonoBehaviour
     private GameObject _bullet;
     [SerializeField, Header("’e‚ð”­ŽË‚·‚éŽžŠÔ")]
     private float _shootTime;
-    [SerializeField] private GameObject _player;
     [SerializeField, Header("‘Ì—Í")]
     private int _hp;
+    [SerializeField, Header("ˆÚ“®‘¬“x")]
+    private float _moveSpeed;
 
+    private GameObject _player;
+    private Rigidbody2D _rigid;
     private float _shootCount;
+    private bool _bAttack;
+    Vector3 dir;
 
     void Start()
     {
+        if(FindFirstObjectByType<PlayerController>())
+        {
+            _player = FindFirstObjectByType<PlayerController>().gameObject;
+        }
         _shootCount = 0;
+        _bAttack = false;
+        _rigid = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
         _Shooting();
+        _Move();
     }
 
     private void _Shooting()
@@ -32,8 +44,8 @@ public class Enemy : MonoBehaviour
 
         GameObject bulletObj = Instantiate(_bullet);
         bulletObj.transform.position = transform.position;
-        Vector3 dir = _player.transform.position - transform.position;
-        bulletObj.transform.rotation = Quaternion.FromToRotation(transform.up, dir);
+            dir = _player.transform.position - transform.position;
+            bulletObj.transform.rotation = Quaternion.FromToRotation(transform.up, dir);
         _shootCount = 0.0f;
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,4 +59,23 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
+    private void _Move()
+    {
+       _rigid.linearVelocity = Vector2.down * _moveSpeed;
+    }
+
+    private void OnBecameVisible()
+    {
+            _bAttack = true;
+    }
+    private void OnBecameInvisible()
+    {
+        if (_bAttack)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
 }
