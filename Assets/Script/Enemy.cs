@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
 
     protected GameObject _player;
     protected Rigidbody2D _rigid;
+    protected Vector2 _moveVec;
     protected float _shootCount;
     protected bool _bAttack;
 
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour
         _rigid = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _defaultSprite = _spriteRenderer.sprite;
+        _moveVec = Vector2.down;
         _Initialize();
     }
 
@@ -68,7 +70,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void _Move()
     {
-       _rigid.linearVelocity = Vector2.down * _moveSpeed;
+       _rigid.linearVelocity = _moveVec * _moveSpeed;
     }
 
     private void OnBecameVisible()
