@@ -82,21 +82,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy")
-        {
-            if (!_bDamage)
-            {
-                _hp -= 1;
-                _bDamage = true;
-                if (_hp <= 0)
-                {
-                    Destroy(gameObject);
-                    Instantiate(_deadEffect, transform.position, Quaternion.identity);
-                    _gameManager.DeadEffect();
-                    _shaker.GenerateImpulse();
-                }
-            }
-        }
+        _Hit(collision.gameObject);
     }
 
     private void _Damage()
@@ -114,6 +100,30 @@ public class PlayerController : MonoBehaviour
             _spriteRenderer.enabled = true;
             _bDamage = false;
         } 
+    }
+
+    private void _Hit(GameObject hitobj)
+    {
+        if (_bDamage) return;
+
+        if(hitobj.tag == "Bullet")
+        {
+            _hp -= hitobj.GetComponent<Bullet>().GetPower();
+        }
+        else if(hitobj.tag == "Enemy")
+        {
+            _hp -= 1;
+        }
+
+        _bDamage = true;
+        if(_hp <= 0)
+        {
+            Destroy(gameObject);
+            Instantiate(_deadEffect, transform.position, Quaternion.identity);
+            _gameManager.DeadEffect();
+            _shaker.GenerateImpulse();
+
+        }
     }
 
     public void OnMOve(InputAction.CallbackContext context)

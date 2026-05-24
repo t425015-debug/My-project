@@ -66,6 +66,7 @@ public class Boss : Enemy
 
     protected override void _Attack()
     {
+        if (!_bAttack) return;
         switch (_attackMode)
         {
             case AttackMode.Normal: _NormalShooting(); break;

@@ -9,7 +9,7 @@ public class BulletEnemy : Enemy
 
     private void _Shooting()
     {
-        if (_player == null) return;
+        if (_player == null || !_bAttack) return;
         _shootCount += Time.deltaTime;
         if (_shootCount < _shootTime) return;
 

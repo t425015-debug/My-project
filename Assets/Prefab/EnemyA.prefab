@@ -111,6 +111,8 @@ MonoBehaviour:
   _shootTime: 0.8
   _hp: 2
   _moveSpeed: 2
+  _damageEffectTime: 0.1
+  _damageSprite: {fileID: -9163963698244219721, guid: f9ff23ba5a436af4cbcb48bdf1e0f9dd, type: 3}
 --- !u!50 &5387355586121132537
 Rigidbody2D:
   serializedVersion: 5
@@ -203,3 +205,5 @@ MonoBehaviour:
   _shootTime: 0.8
   _hp: 2
   _moveSpeed: 2
+  _damageEffectTime: 0.1
+  _damageSprite: {fileID: -1263387288560398432, guid: f9ff23ba5a436af4cbcb48bdf1e0f9dd, type: 3}

@@ -170,5 +170,17 @@ MonoBehaviour:
   _shootTime: 2.5
   _hp: 20
   _moveSpeed: 3
+  _damageEffectTime: 0
+  _damageSprite: {fileID: 5472090341651835901, guid: f9ff23ba5a436af4cbcb48bdf1e0f9dd, type: 3}
   _limitPosY: 2.5
   _normalAttackCount: 2
+  _ougiBulletNum: 0
+  _ougiAngle: 0
+  _ougiAttackCount: 0
+  _LRAttackTime: 0
+  _LRShootTime: 0
+  _LRRange: 0
+  _LRSpeed: 0
+  _circleBulletNum: 0
+  _circleShootTime: 0
+  _circleBulletTime: 0

@@ -263,7 +263,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 6
+    OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -403,7 +403,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1533,6 +1533,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyC
       objectReference: {fileID: 0}
+    - target: {fileID: 931842373581743680, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849665580275448246, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
       propertyPath: _LRRange
       value: 50
@@ -1554,6 +1562,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: _damageSprite
+      value: 
+      objectReference: {fileID: -9169981054982338863, guid: f9ff23ba5a436af4cbcb48bdf1e0f9dd, type: 3}
+    - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
       propertyPath: _ougiBulletNum
       value: 6
       objectReference: {fileID: 0}
@@ -1574,12 +1586,16 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: _damageEffectTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
       propertyPath: _bullet.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
       propertyPath: _normalAttackCount
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
       propertyPath: '_bullet.Array.data[1]'
