@@ -22,6 +22,12 @@ public class Boss : Enemy
     private float _LRRange;
     [SerializeField, Header("ƒWƒOƒUƒO‚Ì‘¬“x")]
     private float _LRSpeed;
+    [SerializeField, Header("‰~Œ`‚Ì’e”")]
+    private int _circleBulletNum;
+    [SerializeField, Header("‰~Œ`‚ÌUŒ‚‚ÌŽžŠÔ")]
+    private float _circleShootTime;
+    [SerializeField, Header("‰~Œ`‚É’e‚ð”­ŽË‚·‚éŽžŠÔŠÔŠu")]
+    private float _circleBulletTime;
 
     enum AttackMode
     {
@@ -35,6 +41,7 @@ public class Boss : Enemy
     private AttackMode _attackMode;
     private float _rotateZ;
     private float _LRAttackCount;
+    private float _circleShootCount;
 
     protected override void _Initialize()
     {
@@ -42,6 +49,7 @@ public class Boss : Enemy
         _attackMode = AttackMode.Normal;
         _rotateZ = 0;
         _LRAttackCount = 0f;
+        _circleShootCount = 0f;
     }
 
     protected override void _Move()
@@ -63,7 +71,7 @@ public class Boss : Enemy
             case AttackMode.Normal: _NormalShooting(); break;
             case AttackMode.Ougi: _OugiShooting();  break;
             case AttackMode.LeftRight: _LeftRightShooting(); break;
-            case AttackMode.Circle: break;
+            case AttackMode.Circle: _CircleShooting(); break;
         }
     }
 
@@ -141,6 +149,32 @@ public class Boss : Enemy
         GameObject bullet = Instantiate( _bullet[2]);
         bullet.transform.position = transform.position;
         bullet.transform.eulerAngles = new Vector3(0f, 0f, -180f + _rotateZ);
+
+        _shootCount = 0f;
+    }
+
+    private void _CircleShooting()
+    {
+        _circleShootCount += Time.deltaTime;
+        if(_circleShootCount >= _circleShootTime)
+        {
+            _shootCount = 0f;
+            _circleShootCount = 0f;
+            _attackMode = AttackMode.Normal;
+        }
+
+        _shootCount += Time.deltaTime;
+        if (_shootCount < _circleBulletTime) return;
+
+        for (int i = 0; i < _circleBulletNum; i++)
+        {
+            float angleRange = Mathf.Deg2Rad * 360f;
+            float theta = angleRange / (_circleBulletNum - 1) * i - Mathf.Deg2Rad * (90f + 360f / 2f);
+            GameObject bullet = Instantiate(_bullet[3]);
+            bullet.transform.position = transform.position;
+            Vector3 dir = transform.position + new Vector3(Mathf.Cos(theta), Mathf.Sin(theta)) - transform.position;
+            bullet.transform.rotation = Quaternion.FromToRotation(transform.up, dir);
+        }
 
         _shootCount = 0f;
     }

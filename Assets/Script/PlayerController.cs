@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,25 +12,31 @@ public class PlayerController : MonoBehaviour
     private float _shootTime;
     [SerializeField, Header("‘Ì—Í")]
     private int _hp;
+    [SerializeField, Header("“_–ÅŽžŠÔ")]
+    private float _damageTime;
+    [SerializeField, Header("“_–ÅŽüŠú")]
+    private float _damageCycle;
 
-    Vector2 _input;
+    private Vector2 _input;
     private Rigidbody2D _rigid;
+    private SpriteRenderer _spriteRenderer;
     private float _shootCount;
+    private float _damageTimeCount;
+    private bool _bDamage;
+
 
     private void Start()
     {
-     _rigid = GetComponent<Rigidbody2D>();
+        _rigid = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _shootCount = 0;
+        _damageTimeCount = 0;
+        _bDamage = false;
     }
     void Update()
     {
          _Move();
-            _shootCount += Time.deltaTime;
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            _Shooting();
-        }
+        _Damage();
     }
     private void _Move()
     {
@@ -45,6 +52,14 @@ public class PlayerController : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y, -4f, 4f);
 
         transform.position = pos;
+
+        _shootCount += Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            _Shooting();
+        }
+
     }
 
     private void _Shooting()
@@ -60,16 +75,48 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy")
         {
-            _hp -= 1;
-            if(_hp <= 0)
+            if (!_bDamage)
             {
-                Destroy(gameObject);
+                _hp -= 1;
+                _bDamage = true;
+                if (_hp <= 0)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
+    }
+
+    private void _Damage()
+    {
+        if (!_bDamage) return;
+
+        _damageTimeCount += Time.deltaTime;
+
+        float value = Mathf.Repeat(_damageTimeCount, _damageCycle);
+        _spriteRenderer.enabled = value >= _damageCycle * 0.5f;
+        
+        if(_damageTimeCount >= _damageTime)
+        {
+            _damageTimeCount = 0;
+            _spriteRenderer.enabled = true;
+            _bDamage = false;
+        } 
+    }
+
+    public void OnMOve(InputAction.CallbackContext context)
+    {
+        _input = context.ReadValue<Vector2>();
+
     }
 
     public int GetHP()
     {
         return _hp;
+    }
+
+    public bool IsDamage()
+    {
+        return _bDamage;
     }
 }
