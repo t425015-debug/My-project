@@ -1,6 +1,9 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigid;
     private SpriteRenderer _spriteRenderer;
     private GameManager _gameManager;
+    private CinemachineImpulseSource _shaker;
     private float _shootCount;
     private float _damageTimeCount;
     private bool _bDamage;
@@ -33,6 +37,7 @@ public class PlayerController : MonoBehaviour
         _rigid = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _gameManager = FindFirstObjectByType<GameManager>();
+        _shaker = FindAnyObjectByType<CinemachineImpulseSource>();
         _shootCount = 0;
         _damageTimeCount = 0;
         _bDamage = false;
@@ -88,6 +93,7 @@ public class PlayerController : MonoBehaviour
                     Destroy(gameObject);
                     Instantiate(_deadEffect, transform.position, Quaternion.identity);
                     _gameManager.DeadEffect();
+                    _shaker.GenerateImpulse();
                 }
             }
         }
