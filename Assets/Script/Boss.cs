@@ -8,20 +8,40 @@ public class Boss : Enemy
     private float _limitPosY;
     [SerializeField, Header("通常攻撃")]
     private int _normalAttackCount;
+    [SerializeField, Header("扇弾の弾数")]
+    private int _ougiBulletNum;
+    [SerializeField, Header("扇の角度")]
+    private float _ougiAngle;
+    [SerializeField, Header("扇弾の攻撃回数")]
+    private int _ougiAttackCount;
+    [SerializeField, Header("ジグザグ弾の時間")]
+    private float _LRAttackTime;
+    [SerializeField, Header("ジグザグ弾の間隔")]
+    private float _LRShootTime;
+    [SerializeField, Header("ジグザグの幅")]
+    private float _LRRange;
+    [SerializeField, Header("ジグザグの速度")]
+    private float _LRSpeed;
 
     enum AttackMode
     {
-        Normal,
-        Ougi,
+        Normal,     // 通常弾
+        Ougi,　     // 扇弾　
+        LeftRight,  // ジグザグ弾
+        Circle,    //
     }
 
-    private int _currentNormalAttackCount;
+    private int _currentAttackCount;
     private AttackMode _attackMode;
+    private float _rotateZ;
+    private float _LRAttackCount;
 
     protected override void _Initialize()
     {
-        _currentNormalAttackCount = 0;
+        _currentAttackCount = 0;
         _attackMode = AttackMode.Normal;
+        _rotateZ = 0;
+        _LRAttackCount = 0f;
     }
 
     protected override void _Move()
@@ -41,7 +61,9 @@ public class Boss : Enemy
         switch (_attackMode)
         {
             case AttackMode.Normal: _NormalShooting(); break;
-            case AttackMode.Ougi: break;
+            case AttackMode.Ougi: _OugiShooting();  break;
+            case AttackMode.LeftRight: _LeftRightShooting(); break;
+            case AttackMode.Circle: break;
         }
     }
 
@@ -55,12 +77,71 @@ public class Boss : Enemy
         bulletObj.transform.rotation = Quaternion.FromToRotation(transform.up, Vector2.down);
 
         _shootCount = 0f;
-        _currentNormalAttackCount++;
+        _currentAttackCount++;
 
-        if(_currentNormalAttackCount >= _normalAttackCount)
+        if(_currentAttackCount >= _normalAttackCount)
         {
             _attackMode = AttackMode.Ougi;
-            _currentNormalAttackCount = 0;
+            _currentAttackCount = 0;
         }
+    }
+
+
+    // 扇状に弾を飛ばす関数
+    private void _OugiShooting()
+    {
+        _shootCount += Time.deltaTime;
+        if(_shootCount < _shootTime) return;
+
+        for (int i = 0; i < _ougiBulletNum; i++)
+        {
+            float angleRange = Mathf.Deg2Rad * _ougiAngle; //ラジアン単位に変換
+            float theta = angleRange / (_ougiBulletNum - 1) * i - Mathf.Deg2Rad * (90f + _ougiAngle / 2f);
+            GameObject bullet = Instantiate(_bullet[1]);
+            bullet.transform.position = transform.position;
+            Vector3 dir = transform.position + new Vector3(Mathf.Cos(theta), Mathf.Sin(theta)) - transform.position;
+            bullet.transform.rotation = Quaternion.FromToRotation(transform.up, dir);
+        }
+
+        _shootCount = 0f;
+        _currentAttackCount++;
+
+        if(_currentAttackCount >= _ougiAttackCount)
+        {
+            _attackMode = AttackMode.LeftRight;
+            _currentAttackCount = 0;
+        }
+    }
+
+    private void _LeftRightShooting()
+    {
+        _LRAttackCount += Time.deltaTime;
+        if(_LRAttackCount >= _LRAttackTime)
+        {
+            _shootCount = 0f;
+            _LRAttackCount = 0f;
+            _attackMode = AttackMode.Circle;
+        }
+
+        _shootCount += Time.deltaTime;
+        if (_shootCount < _LRShootTime) return;
+
+        _rotateZ += _LRSpeed;
+        if(_rotateZ > _LRRange)
+        {
+            _LRSpeed *= -1f;
+            _rotateZ = _LRRange;
+        }
+        else if(_rotateZ < -_LRRange)
+        {
+            _LRSpeed *= -1f;
+            _rotateZ = -_LRRange;
+        }
+        
+        GameObject bullet = Instantiate( _bullet[2]);
+        bullet.transform.position = transform.position;
+        bullet.transform.eulerAngles = new Vector3(0f, 0f, -180f + _rotateZ);
+
+        _shootCount = 0f;
     }
 }

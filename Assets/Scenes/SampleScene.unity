@@ -681,7 +681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &855414248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,6 +1266,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyC
       objectReference: {fileID: 0}
+    - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: _LRRange
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: _LRSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: _ougiAngle
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: LRShootTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: _LRAttackTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: _ougiBulletNum
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: _ougiAttackCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: _bullet.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: '_bullet.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5350650525680159036, guid: 118ebf0c0a3fb5248872b7fa7ca1ba3c, type: 3}
+    - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: '_bullet.Array.data[2]'
+      value: 
+      objectReference: {fileID: 6103535745687311128, guid: 38866f5caa145a94896c0e47b1b22bd1, type: 3}
     - target: {fileID: 6990640994361562316, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
