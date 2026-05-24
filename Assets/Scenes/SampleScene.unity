@@ -631,6 +631,7 @@ MonoBehaviour:
   _hp: 5
   _damageTime: 1
   _damageCycle: 0.25
+  _deadEffect: {fileID: 160291057511063860, guid: 0ca6bb5fcc0c01c45a4c9291c4d3aebb, type: 3}
 --- !u!58 &645008537
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -802,6 +803,52 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0513, y: 0.0345, z: 0}
   m_LocalScale: {x: 1.7037143, y: 0.7452379, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1018154271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1018154273}
+  - component: {fileID: 1018154272}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1018154272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018154271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad26e8ba34fcd34a825e4e353afd375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deadEffectTimeScale: 0.5
+  _deadEffectTime: 1
+--- !u!4 &1018154273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018154271}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1313,6 +1360,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: _normalAttackCount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
       propertyPath: '_bullet.Array.data[1]'
       value: 
       objectReference: {fileID: 5350650525680159036, guid: 118ebf0c0a3fb5248872b7fa7ca1ba3c, type: 3}
@@ -1381,3 +1432,4 @@ SceneRoots:
   - {fileID: 896361644}
   - {fileID: 855414249}
   - {fileID: 4595968793401408891}
+  - {fileID: 1018154273}

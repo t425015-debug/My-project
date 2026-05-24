@@ -16,10 +16,13 @@ public class PlayerController : MonoBehaviour
     private float _damageTime;
     [SerializeField, Header("点滅周期")]
     private float _damageCycle;
+    [SerializeField, Header("死亡エフェクト")]
+    private GameObject _deadEffect;
 
     private Vector2 _input;
     private Rigidbody2D _rigid;
     private SpriteRenderer _spriteRenderer;
+    private GameManager _gameManager;
     private float _shootCount;
     private float _damageTimeCount;
     private bool _bDamage;
@@ -29,6 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         _rigid = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _gameManager = FindFirstObjectByType<GameManager>();
         _shootCount = 0;
         _damageTimeCount = 0;
         _bDamage = false;
@@ -82,6 +86,8 @@ public class PlayerController : MonoBehaviour
                 if (_hp <= 0)
                 {
                     Destroy(gameObject);
+                    Instantiate(_deadEffect, transform.position, Quaternion.identity);
+                    _gameManager.DeadEffect();
                 }
             }
         }
