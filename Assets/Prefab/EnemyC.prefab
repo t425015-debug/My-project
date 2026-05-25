@@ -172,6 +172,7 @@ MonoBehaviour:
   _moveSpeed: 3
   _damageEffectTime: 0
   _damageSprite: {fileID: 5472090341651835901, guid: f9ff23ba5a436af4cbcb48bdf1e0f9dd, type: 3}
+  _deadEffect: {fileID: 6651205914842206723, guid: 17f74d832bbbe2d41aae8d3e0ed87c45, type: 3}
   _limitPosY: 2.5
   _normalAttackCount: 2
   _ougiBulletNum: 0

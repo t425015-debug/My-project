@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     private float _damageEffectTime;
     [SerializeField, Header("ダメージ時の画像")]
     private Sprite _damageSprite;
+    [SerializeField, Header("死亡エフェクト")]
+    private GameObject _deadEffect;
 
     protected GameObject _player;
     protected Rigidbody2D _rigid;
@@ -68,7 +70,6 @@ public class Enemy : MonoBehaviour
             if (_hp <= 0)
             {
                 _Dead();
-                Destroy(gameObject);
             }
         }
     }
@@ -99,6 +100,8 @@ public class Enemy : MonoBehaviour
 
     protected virtual void _Dead()
     {
-
+        GameObject effect = Instantiate(_deadEffect, transform.position, Quaternion.identity);
+        effect.transform.localScale = transform.localScale;
+        Destroy(gameObject);
     }
 }

@@ -24,17 +24,20 @@ public class GameManager : MonoBehaviour
 
     private bool _bShowResult;
     private ResultMode _resultMode;
+    private BossDeadEffect _bossDeadEffect;
 
     void Start()
     {
         _bShowResult = false;
         _resultMode = ResultMode.None;
+        _bossDeadEffect = null;
     }
     void Update()
     {
         if (_bShowResult)
         {
             OnRetry();
+            _ShowGameClear();
         }
     }
 
@@ -42,6 +45,17 @@ public class GameManager : MonoBehaviour
     {
         _resultMode = resultMode;
         StartCoroutine(Slow());
+    }
+
+    private void _ShowGameClear()
+    {
+        if (_bossDeadEffect == null) return;
+
+        if (_bossDeadEffect.IsEnd())
+        {
+            _gameClear.SetActive(true);
+            _bShowResult=true;
+        }
     }
 
     IEnumerator Slow()
@@ -61,8 +75,11 @@ public class GameManager : MonoBehaviour
 
         switch (_resultMode)
         {
-            case ResultMode.GameOver: _gameOver.SetActive(true); break;
-            case ResultMode.GameClear: _gameClear.SetActive(true); break;
+            case ResultMode.GameOver:
+                _gameOver.SetActive(true);
+                _bShowResult = true;
+                break;
+            case ResultMode.GameClear: _bossDeadEffect = FindAnyObjectByType<BossDeadEffect>();break;
         }
     }
 

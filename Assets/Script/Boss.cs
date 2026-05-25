@@ -98,6 +98,7 @@ public class Boss : Enemy
     protected override void _Dead()
     {
         _gameManager.DeadEffect(GameManager.ResultMode.GameClear);
+        base._Dead();
     }
 
     // îó‚É’e‚ğ”ò‚Î‚·ŠÖ”

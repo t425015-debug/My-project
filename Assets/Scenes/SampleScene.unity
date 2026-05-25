@@ -939,7 +939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   _bullet: {fileID: 6113431847094047769, guid: f462958709f2e824d905f575e9d0439d, type: 3}
-  _shootTime: 0.2
+  _shootTime: 0.05
   _hp: 5
   _damageTime: 1
   _damageCycle: 0.25
@@ -2491,6 +2491,10 @@ PrefabInstance:
       propertyPath: LRShootTime
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
+      propertyPath: _deadEffect
+      value: 
+      objectReference: {fileID: 6651205914842206723, guid: 17f74d832bbbe2d41aae8d3e0ed87c45, type: 3}
     - target: {fileID: 4343688263437219482, guid: f7e9c374f48077f4eb926c3a51b9ceec, type: 3}
       propertyPath: _LRAttackTime
       value: 15
