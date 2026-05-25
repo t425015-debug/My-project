@@ -95,6 +95,10 @@ public class Boss : Enemy
         }
     }
 
+    protected override void _Dead()
+    {
+        _gameManager.DeadEffect(GameManager.ResultMode.GameClear);
+    }
 
     // îó‚É’e‚ğ”ò‚Î‚·ŠÖ”
     private void _OugiShooting()

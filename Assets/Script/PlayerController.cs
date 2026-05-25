@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(_deadEffect, transform.position, Quaternion.identity);
-            _gameManager.DeadEffect();
+            _gameManager.DeadEffect(GameManager.ResultMode.GameOver);
             _shaker.GenerateImpulse();
 
         }

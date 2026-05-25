@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
     private Sprite _defaultSprite;
-    private GameManager _gameManager;
+    protected GameManager _gameManager;
 
     void Start()
     {
@@ -67,6 +67,7 @@ public class Enemy : MonoBehaviour
             StartCoroutine(_Damage());
             if (_hp <= 0)
             {
+                _Dead();
                 Destroy(gameObject);
             }
         }
@@ -94,5 +95,10 @@ public class Enemy : MonoBehaviour
         _spriteRenderer.sprite = _damageSprite;
         yield return new WaitForSeconds(_damageEffectTime);
         _spriteRenderer.sprite = _defaultSprite;
+    }
+
+    protected virtual void _Dead()
+    {
+
     }
 }
