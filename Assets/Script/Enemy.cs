@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
     private Sprite _defaultSprite;
+    private GameManager _gameManager;
+
     void Start()
     {
         if(FindFirstObjectByType<PlayerController>())
@@ -37,6 +39,7 @@ public class Enemy : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _defaultSprite = _spriteRenderer.sprite;
         _moveVec = Vector2.down;
+        _gameManager = FindAnyObjectByType<GameManager>();
         _Initialize();
     }
 
@@ -47,6 +50,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (_gameManager.IsShowResult()) return;
         _Move();
         _Attack();
     }
