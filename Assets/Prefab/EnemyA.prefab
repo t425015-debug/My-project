@@ -111,6 +111,7 @@ MonoBehaviour:
   _shootTime: 0.8
   _hp: 2
   _moveSpeed: 2
+  _exp: 5
   _damageEffectTime: 0.1
   _damageSprite: {fileID: -9163963698244219721, guid: f9ff23ba5a436af4cbcb48bdf1e0f9dd, type: 3}
   _deadEffect: {fileID: 160291057511063860, guid: 0ca6bb5fcc0c01c45a4c9291c4d3aebb, type: 3}
@@ -206,6 +207,7 @@ MonoBehaviour:
   _shootTime: 0.8
   _hp: 2
   _moveSpeed: 2
+  _exp: 0
   _damageEffectTime: 0.1
   _damageSprite: {fileID: -1263387288560398432, guid: f9ff23ba5a436af4cbcb48bdf1e0f9dd, type: 3}
   _deadEffect: {fileID: 160291057511063860, guid: 0ca6bb5fcc0c01c45a4c9291c4d3aebb, type: 3}

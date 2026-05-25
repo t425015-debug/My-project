@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     private int _hp;
     [SerializeField, Header("移動速度")]
     private float _moveSpeed;
+    [SerializeField, Header("経験値")]
+    public int _exp;
     [SerializeField, Header("ダメージエフェクトの時間")]
     private float _damageEffectTime;
     [SerializeField, Header("ダメージ時の画像")]
@@ -100,8 +102,15 @@ public class Enemy : MonoBehaviour
 
     protected virtual void _Dead()
     {
-        GameObject effect = Instantiate(_deadEffect, transform.position, Quaternion.identity);
+        if (_player != null)
+        {
+            _player
+                .GetComponent<PlayerController>()
+                .AddExp(_exp);
+        }
+            GameObject effect = Instantiate(_deadEffect, transform.position, Quaternion.identity);
         effect.transform.localScale = transform.localScale;
         Destroy(gameObject);
     }
+
 }

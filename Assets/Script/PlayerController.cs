@@ -1,9 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using TMPro;
+using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +16,16 @@ public class PlayerController : MonoBehaviour
     private GameObject _bullet;
     [SerializeField, Header("弾を発射する時間")]
     private float _shootTime;
+    [SerializeField, Header("残弾数リスト")]
+    private List<int> _remainBulletList;
+    [SerializeField]
+    private TextMeshProUGUI _remainBulletText;
+    [SerializeField, Header("レベル")]
+    private int _level;
+    [SerializeField, Header("経験値リスト")]
+    private List<int> _expList;
+    [SerializeField]
+    private TextMeshProUGUI _revelText;
     [SerializeField, Header("体力")]
     private int _hp;
     [SerializeField, Header("点滅時間")]
@@ -30,6 +43,9 @@ public class PlayerController : MonoBehaviour
     private float _shootCount;
     private float _damageTimeCount;
     private bool _bDamage;
+    private Enemy _enemy;
+    private int _expCount;
+    private int _remainBullet;
 
 
     private void Start()
@@ -38,14 +54,20 @@ public class PlayerController : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _gameManager = FindFirstObjectByType<GameManager>();
         _shaker = FindAnyObjectByType<CinemachineImpulseSource>();
+        _enemy = FindFirstObjectByType<Enemy>();
         _shootCount = 0;
         _damageTimeCount = 0;
-        _bDamage = false;
+        _bDamage = false;    
+        _expCount = 0;
+        _remainBullet = _remainBulletList[_level - 1];
     }
     void Update()
     {
          _Move();
         _Damage();
+        _revelText.text = $"Lv:{_level}";
+        _remainBulletText.text = $"Bullet{_remainBullet}";
+        _LevelCheck();
     }
     private void _Move()
     {
@@ -74,10 +96,16 @@ public class PlayerController : MonoBehaviour
     private void _Shooting()
     {
         if (_shootCount < _shootTime) return;
+        if(_remainBullet == 0)
+        {
+            Debug.Log("残弾が0です");
+            return;
+        }
 
         GameObject bulletObj = Instantiate(_bullet);
         bulletObj.transform.position = transform.position + new Vector3(0f, transform.lossyScale.y / 2.0f, 0f);
         _shootCount = 0.0f;
+        _remainBullet--;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -140,5 +168,26 @@ public class PlayerController : MonoBehaviour
     public bool IsDamage()
     {
         return _bDamage;
+    }
+
+    private void _LevelCheck()
+    {
+        if (_level > _expList[_expList.Count - 1]) return; // 最大レベルならreuturn
+
+        if (_expList[_level - 1] - _expCount <= 0)
+        {
+            _expCount -= _expList[_level - 1];
+            _level++;
+            _remainBullet = _remainBulletList[_level - 1];
+        }
+    }
+
+    public void AddExp(int exp)
+    {
+        _expCount += exp;
+
+        Debug.Log("EXP : " + _expCount);
+
+        _LevelCheck();
     }
 }
