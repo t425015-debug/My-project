@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a79ea5e866d6b394c9f71df748959702
+guid: 1083263c64f609e43b73ae15b0f96b31
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Orange Kid
+  - DotGothic16
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem.Switch;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using TMPro;
 
 public class RoadMapPLayer : MonoBehaviour
 {
 
-    [SerializeField] float moveSpeed;
+    [SerializeField]  float moveSpeed;
+    [SerializeField] TextMeshProUGUI _text;
 
     bool isMoving;
     Vector2 input;
