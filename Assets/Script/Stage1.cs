@@ -14,6 +14,8 @@ public class Stage1 : MonoBehaviour
         _Bag,
     }
 
+    [SerializeField] TextMeshProUGUI _mainTextBox;
+    [SerializeField] GameObject _subTextBox;
     [SerializeField] TextMeshProUGUI _goldText;
     [SerializeField] List<TextMeshProUGUI> _moveTexts;
     [SerializeField] Color _highlightColor;
@@ -22,23 +24,39 @@ public class Stage1 : MonoBehaviour
     [SerializeField] List<Sprite> _sprite;
     [SerializeField] List<TextMeshProUGUI> _itemDiscriptions;
     [SerializeField] GameObject _shopWindow;
+    [SerializeField] List<TextMeshProUGUI> _powerUpTexts;
+    [SerializeField] GameObject _powerUpWindow;
 
     private int _gold;
     private int _currentMove; // 0:左上, 1: 右上, ２:左下, 3:右下
     private Vector2 _input;
     private int _currentItem;
     private _Action _action;
+    private string _mainText;
+    private int _currentPowerUp;
 
     void Start()
     {
         _gold = 0;
         _currentMove = 0;
         _currentItem = 0;
+        _currentPowerUp = 0;
         _action = _Action.None;
+        _mainText = "いらっしゃい!";
     }
 
     void Update()
     {
+        if (_action != _Action.None)
+        {
+            _subTextBox.SetActive(false);
+            _mainText = "いらっしゃい!";
+        }
+        else {
+            _subTextBox.SetActive(true);
+        }
+        _mainTextBox.text = $"{_mainText}";
+
         _goldText.text = $"{_gold}";
         if (_action == _Action.None)
         {
@@ -117,6 +135,21 @@ public class Stage1 : MonoBehaviour
         _currentItem = Mathf.Clamp(_currentItem, 0, _itemTexts.Count - 1);
     }
 
+    void _PowerUpSelection()
+    {
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            _currentPowerUp++;
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            _currentPowerUp--;
+        }
+
+        _currentPowerUp = Mathf.Clamp(_currentPowerUp, 0, _powerUpTexts.Count - 1);
+    }
+
+
 
     private void _MoveSelectColor()
     {
@@ -164,10 +197,29 @@ public class Stage1 : MonoBehaviour
 
     }
 
+    private void _PowerUpSelectColor()
+    {
+        for (int i = 0; i <= _powerUpTexts.Count - 1; i++)
+        {
+            if (_currentPowerUp == i)
+            {
+                _powerUpTexts[i].color = _highlightColor;
+                _powerUpTexts[i].fontSize = 55;
+            }
+            else
+            {
+                _powerUpTexts[i].color = Color.white;
+                _powerUpTexts[i].fontSize = 50;
+            }
+        }
+
+    }
+
     private void _Shop()
     {
+        _mainText = "何を買う？";
         _shopWindow.SetActive(true);
-        _moveTexts[_currentMove].color = Color.black;
+
         _ShopItemSelection();
         _ShopItemSelectColor();
         if (Input.GetKeyDown(KeyCode.X)){
@@ -176,11 +228,19 @@ public class Stage1 : MonoBehaviour
         }
     }
 
-private void _PowerUp()
+    private void _PowerUp()
     {
+        _mainText = "どれを強化する？";
+        _powerUpWindow.SetActive(true);
+        _PowerUpSelection();
+        _PowerUpSelectColor();
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            _powerUpWindow.SetActive(false);
+            _action = _Action.None;
 
+        }
     }
-
     private void _Bag()
     {
 
