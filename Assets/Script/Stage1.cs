@@ -26,7 +26,6 @@ public class Stage1 : MonoBehaviour
     [SerializeField] GameObject _gameObject;
     [SerializeField] List<TextMeshProUGUI> _itemTexts;
     [SerializeField] List<Sprite> _sprite;
-    [SerializeField] List<TextMeshProUGUI> _itemDiscriptions;
     [SerializeField] GameObject _shopWindow;
     [SerializeField] List<TextMeshProUGUI> _powerUpTexts;
     [SerializeField] GameObject _powerUpWindow;
@@ -270,7 +269,6 @@ public class Stage1 : MonoBehaviour
 
             if (!_isYesNo && Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("a");
                 _isYesNo = true;
                 _subText2.SetActive(true);
                 _currentYesNo = 1;
