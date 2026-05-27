@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
 
     private void _LevelCheck()
     {
-        if (_level > _expList[_expList.Count - 1]) return; // Å‘åƒŒƒxƒ‹‚È‚çreuturn
+        if (_level > _expList[_expList.Count - 1]) return; // Å‘åƒŒƒxƒ‹‚È‚çreturn
 
         if (_expList[_level - 1] - _expCount <= 0)
         {
