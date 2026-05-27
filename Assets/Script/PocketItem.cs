@@ -7,7 +7,7 @@ using System;
 
 public class PocketItem 
 {
-    public Sprite _item;
+    public Sprite _itemSprite;
     public int _id;
     public string _name;
     public string _explaningText;

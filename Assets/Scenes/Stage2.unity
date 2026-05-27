@@ -940,7 +940,6 @@ MonoBehaviour:
   moveSpeed: 10
   _bullet: {fileID: 6113431847094047769, guid: f462958709f2e824d905f575e9d0439d, type: 3}
   _shootTime: 0.2
-  _remainBullet: 80
   _remainBulletList: 14000000190000001e00000023000000280000002d00000032000000370000003c00000041000000460000004b00000050000000550000005a0000005f00000064000000690000006e00000073000000780000007d00000082000000870000008c00000091000000960000009b000000a0000000a5000000
   _remainBulletText: {fileID: 1945498813}
   _level: 1
@@ -2032,14 +2031,14 @@ RectTransform:
   m_GameObject: {fileID: 1945498811}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.86, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 165856980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16, y: -43.5}
+  m_AnchoredPosition: {x: 2.33, y: -43.5}
   m_SizeDelta: {x: 250, y: 102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1945498813
@@ -2064,8 +2063,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Bullet : 30'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0ca4efc78cf1bb948a886ece52769f86, type: 2}
-  m_sharedMaterial: {fileID: -8120109764611152984, guid: 0ca4efc78cf1bb948a886ece52769f86, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44d895c264920f54c945d2df144254bd, type: 2}
+  m_sharedMaterial: {fileID: -8781076008477239993, guid: 44d895c264920f54c945d2df144254bd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2089,13 +2088,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2380,8 +2379,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Lv:15
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0ca4efc78cf1bb948a886ece52769f86, type: 2}
-  m_sharedMaterial: {fileID: -8120109764611152984, guid: 0ca4efc78cf1bb948a886ece52769f86, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44d895c264920f54c945d2df144254bd, type: 2}
+  m_sharedMaterial: {fileID: -8781076008477239993, guid: 44d895c264920f54c945d2df144254bd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2405,13 +2404,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 54
+  m_fontSizeBase: 54
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535

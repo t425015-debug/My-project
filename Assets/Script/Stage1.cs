@@ -2,58 +2,71 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.Switch;
 using UnityEngine.SceneManagement;
 
 public class Stage1 : MonoBehaviour
 {
-    enum _Action
+    public enum _Action
     {
         None,
         _Shop,
-        _ShopYesNo,
         PowerUp,
-        PowerYesNo,
         _Bag,
     }
 
-    [SerializeField] TextMeshProUGUI _mainTextBox;
-    [SerializeField] GameObject _subTextBox;
-    [SerializeField] TextMeshProUGUI _goldText;
-    [SerializeField] List<TextMeshProUGUI> _moveTexts;
-    [SerializeField] Color _highlightColor;
-    [SerializeField] GameObject _gameObject;
-    [SerializeField] List<TextMeshProUGUI> _itemTexts;
-    [SerializeField] List<Sprite> _sprite;
-    [SerializeField] GameObject _shopWindow;
-    [SerializeField] List<TextMeshProUGUI> _powerUpTexts;
-    [SerializeField] GameObject _powerUpWindow;
-    [SerializeField] Bag _bag;
-    [SerializeField] ItemDataBase _base;
-    [SerializeField] List<TextMeshProUGUI> _subTexts2;
-    [SerializeField] GameObject _subText2;
+    [SerializeField,Header("メインテキスト")]
+    public TextMeshProUGUI _mainTextBox;
+    [SerializeField, Header("行動テキストオブジェクト")]
+    private GameObject _subTextBox;
+    [SerializeField, Header("お金のテキスト")]
+    private TextMeshProUGUI _goldText;
+    [SerializeField, Header("行動テキスト")] 
+    private List<TextMeshProUGUI> _moveTexts;
+    [SerializeField, Header("選択カラー")]
+    public Color _highlightColor;
+    [SerializeField, Header("アイテム画像")]
+    private GameObject _itemPhoto;
+    [SerializeField, Header("アイテム名テキスト")]
+    private List<TextMeshProUGUI> _itemTexts;
+    [SerializeField, Header("ショップウィンドウオブジェクト")]
+    private GameObject _shopWindow;
+    [SerializeField, Header("バッグオブジェクト")] 
+    private Bag _bag;
+    [SerializeField, Header("アイテムデータ")]
+    private ItemDataBase _base;
+    [SerializeField,Header("はい、いいえテキスト")]
+    public List<TextMeshProUGUI> _subTexts2;
+    [SerializeField, Header("はい、いいえテキストオブジェクト")]
+    public GameObject _subText2;
+    [SerializeField, Header("所持数テキスト")]
+    private TextMeshProUGUI _haveItemCount;
+    [SerializeField, Header("PowerUpWindow")]
+    private PowerUp _powerUp;
 
     private int _gold;
     private int _currentMove; // 0:左上, 1: 右上, ２:左下, 3:右下
-    private Vector2 _input;
     private int _currentItem;
-    private _Action _action;
-    private string _mainText;
-    private int _currentPowerUp;
+    public _Action _action;
+    public string _mainText;
     private int _currentYesNo;
     private bool _isYesNo;
+    private SpriteRenderer _itemSpriteRenderer;
+
+
     void Start()
     {
         _gold = 0;
         _currentMove = 0;
         _currentItem = 0;
-        _currentPowerUp = 0;
         _currentYesNo = 0;
         _action = _Action.None;
         _subText2.SetActive(false);
         _isYesNo = false;
         _mainText = "いらっしゃい!";
+        _itemSpriteRenderer = _itemPhoto.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -82,6 +95,10 @@ public class Stage1 : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
                         _action = _Action._Shop;
+                        for (int i = 0; i < _base.items.Count; i++)
+                        {
+                            _itemTexts[i].text = _base.items[i]._name;
+                        }
                         return;
                     }
                     break;
@@ -109,7 +126,7 @@ public class Stage1 : MonoBehaviour
             }
         }
             if (_action == _Action._Shop) _Shop();
-            if (_action == _Action.PowerUp) _PowerUp();
+            if (_action == _Action.PowerUp) _powerUp._PowerUp();
             if (_action == _Action._Bag) _Bag();
         
     }
@@ -151,23 +168,28 @@ public class Stage1 : MonoBehaviour
             }
         }
         _currentItem = Mathf.Clamp(_currentItem, 0, _itemTexts.Count - 1);
+
+        _mainTextBox.text = _base.items[_currentItem]._explaningText;
+        _itemSpriteRenderer.sprite = _base.items[_currentItem]._itemSprite;
+
+        PocketItem haveItem = _bag._items.Find(
+         item => item._name ==
+         _base.items[_currentItem]._name
+         );
+
+        if (haveItem != null)
+        {
+            _haveItemCount.text =
+                $"所持数：{haveItem._count}";
+        }
+        else
+        {
+            _haveItemCount.text = "所持数：0";
+        }
     }
 
-    void _PowerUpSelection()
-    {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            _currentPowerUp++;
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            _currentPowerUp--;
-        }
 
-        _currentPowerUp = Mathf.Clamp(_currentPowerUp, 0, _powerUpTexts.Count - 1);
-    }
-
-    void _YesNoSelection()
+    public void _YesNoSelection()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -223,24 +245,8 @@ public class Stage1 : MonoBehaviour
 
     }
 
-    private void _PowerUpSelectColor()
-    {
-        for (int i = 0; i <= _powerUpTexts.Count - 1; i++)
-        {
-            if (_currentPowerUp == i)
-            {
-                _powerUpTexts[i].color = _highlightColor;
-                _powerUpTexts[i].fontSize = 55;
-            }
-            else
-            {
-                _powerUpTexts[i].color = Color.white;
-                _powerUpTexts[i].fontSize = 50;
-            }
-        }
-    }
 
-    private void _YesNoSelectColor()
+    public void _YesNoSelectColor()
     {
         for (int i = 0; i <= _subTexts2.Count - 1; i++)
         {
@@ -288,8 +294,8 @@ public class Stage1 : MonoBehaviour
 
                 switch (_currentYesNo)
                 {
-                    case 0: _base.GetItem(_currentItem); break;
-                    case 1: _subText2.SetActive(false); break;
+                    case 0: _bag._ItemGet(_base.GetItem(_currentItem)); break;
+                    case 1:  break;
                 }
 
                 // YES/NO閉じる
@@ -297,7 +303,6 @@ public class Stage1 : MonoBehaviour
                 _isYesNo = false;
 
                 return;
-
             }
         }
         if (Input.GetKeyDown(KeyCode.X))
@@ -307,19 +312,6 @@ public class Stage1 : MonoBehaviour
         }
     }
 
-    private void _PowerUp()
-    {
-        _mainText = "どれを強化する？";
-        _powerUpWindow.SetActive(true);
-        _PowerUpSelection();
-        _PowerUpSelectColor();
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            _powerUpWindow.SetActive(false);
-            _action = _Action.None;
-
-        }
-    }
 
     private void _Bag()
     {

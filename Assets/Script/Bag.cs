@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class Bag : MonoBehaviour
 {
-    private List<PocketItem> _items
-        = new List<PocketItem>();
+    public List<PocketItem> _items
+        = new List<PocketItem>(); // ƒŠƒXƒg‚Ì‰Šú‰»
+
+    int _count = 0;
     void Start()
     {
         
@@ -23,7 +25,10 @@ public class Bag : MonoBehaviour
         PocketItem newItem =
        new PocketItem();
         newItem._name = _item._name;
+        newItem._itemSprite = _item._itemSprite;
+        newItem._explaningText = _item._explaningText;
         newItem._count = _item._count;
+
 
         _items.Add(newItem);
 
