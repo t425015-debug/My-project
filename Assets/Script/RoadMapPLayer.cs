@@ -6,16 +6,39 @@ using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 using TMPro;
 
-public class RoadMapPLayer : MonoBehaviour
+public class RoadMapPLayer : PlayerStatas
 {
 
     [SerializeField]  float moveSpeed;
-    [SerializeField] TextMeshProUGUI _text;
+    [SerializeField, Header("PlanetName")]
+    private TextMeshProUGUI _planetName;
+    [SerializeField, Header("PlanetSprite")]
+    private SpriteRenderer _planetSptiteRenderer;
+    [SerializeField, Header("パワーテキスト")]
+    private TextMeshProUGUI _playerPowerText;
+    [SerializeField, Header("クールタイムテキスト")]
+    private TextMeshProUGUI _playerCoolTimeText;
+    [SerializeField, Header("体力テキスト")]
+    private TextMeshProUGUI _playerHpText;
+    [SerializeField, Header("惑星の名前リスト")]
+    private List<TextMeshProUGUI> _planetNameTexts;
+    [SerializeField, Header("アイテムテキスト")]
+    private TextMeshProUGUI _itemText;
+    [SerializeField, Header("ウィンドウ")]
+    private GameObject _planetWindow;
+    [SerializeField, Header("惑星画像リスト")]
+    private List<Sprite> _planetSprites;
+    [SerializeField, Header("惑星の名前リストオブジェクト")]
+    private GameObject _planetNameGameObject;
+    [SerializeField, Header("ウィンドウプラネット")]
+    private GameObject _planetWindowGameObject;
 
     bool isMoving;
+    bool isWindowOpen;
     Vector2 input;
     int lane = 0;
     Vector3 pos;
+    private int _currentPlanet;
 
 
     float[] laneX =
@@ -32,15 +55,18 @@ public class RoadMapPLayer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             lane--;
+            _currentPlanet--;
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             lane++;
+            _currentPlanet++;
         }
 
         // 範囲制限
         lane = Mathf.Clamp(lane, 0, 4);
+        _currentPlanet = Mathf.Clamp(_currentPlanet, 0, 4);
 
         // レーン位置へ移動
         pos.x = laneX[lane];
@@ -96,34 +122,59 @@ public class RoadMapPLayer : MonoBehaviour
     {
         isMoving = false;
         pos = transform.position;
+        _currentPlanet = 0;
+        _planetSptiteRenderer = _planetWindowGameObject.GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        HandleUpdate();  
+        if (!isWindowOpen)
+        {
+            HandleUpdate();
+
+        }  
         _StageSelect();
     }
 
     private void _StageSelect()
     {
-        switch (lane)
+        if (isWindowOpen && Input.GetKeyDown(KeyCode.X))
         {
-            case 0: if (Input.GetKey(KeyCode.Space)) {
-                    SceneManager.LoadScene("Stage1"); 
-                } break;
-            case 1: if (Input.GetKey(KeyCode.Space)) {
-                    SceneManager.LoadScene("Stage2"); 
-                } break;
-            case 2: if (Input.GetKey(KeyCode.Space)) {
-                    SceneManager.LoadScene("Stage3"); 
-                } break;
-            case 3: if (Input.GetKey(KeyCode.Space)) {
-                    SceneManager.LoadScene("Stage4"); 
-                } break;
-            case 4: if (Input.GetKey(KeyCode.Space)) {
-                    SceneManager.LoadScene("Stage5"); 
-                } break;
+            _planetWindow.SetActive(false);
+
+            _planetNameGameObject.SetActive(true);
+
+            isWindowOpen = false;
+
+            return;
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        { 
+
+            // ウィンドウが閉じているなら開く
+            if (!isWindowOpen)
+            {
+                _Window(_planetSprites[_currentPlanet], _planetNameTexts[_currentPlanet]);
+                isWindowOpen = true;
+            }
+            // 開いているならシーン移動
+            else
+            {
+                _planetNameGameObject.SetActive(true);
+                SceneManager.LoadScene($"Stage{_currentPlanet + 1}");
+            }
+        }
+    }
+
+    private void _Window(Sprite _planetSprite, TextMeshProUGUI _planetText)
+    {
+        _planetWindow.SetActive(true);
+        _planetNameGameObject.SetActive(false);
+        _playerPowerText.text = $"攻撃力:{_power}(Lv:{_powerLevel})";
+        _playerCoolTimeText.text = $"Cタイム:{_coolTime}秒(Lv:{_coolTimeLevel})";
+        _playerHpText.text = $"体力:{_hp}(Lv:{_hpLevel})";
+        _planetName.text = _planetText.text;
+        _planetSptiteRenderer.sprite = _planetSprite;
     }
 
 }

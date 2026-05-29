@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
         None,
         GameOver,
         GameClear,
+        Pose,
     }
 
     [SerializeField, Header("遅くなる時間")]
@@ -22,6 +23,9 @@ public class GameManager : MonoBehaviour
     [SerializeField, Header("ゲームクリア")]
     private GameObject _gameClear;
 
+    [SerializeField, Header("ポーズウィンドウ")]
+    private GameObject _poseWindow;
+
     private bool _bShowResult;
     private ResultMode _resultMode;
     private BossDeadEffect _bossDeadEffect;
@@ -34,6 +38,8 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
+        _Pose();
+
         if (_bShowResult)
         {
             OnRetry();
@@ -94,6 +100,28 @@ public class GameManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
+    public void _Pose()
+    {
+        if (Input.GetKeyDown(KeyCode.X) && _resultMode != ResultMode.Pose)
+        {
+            _resultMode = ResultMode.Pose;
+            _poseWindow.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
+        // ポーズ解除
+        if (_resultMode == ResultMode.Pose && Input.GetKeyDown(KeyCode.Space))
+        {
+            _poseWindow.SetActive(false);
+            Time.timeScale = 1.0f;
+            _resultMode = ResultMode.None;
+        } else if(_resultMode == ResultMode.Pose && Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Map");
+            Time.timeScale = 1.0f;
         }
     }
 }

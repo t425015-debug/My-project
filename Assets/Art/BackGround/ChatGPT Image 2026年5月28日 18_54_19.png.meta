@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ade457029750bf64495946b7f355e9ac
+guid: 52e01ad91f597254babbbbae223b1c87
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1774631516089573684
-    second: RoadMap1_2_0
+      213: -8823739324186552202
+    second: "ChatGPT Image 2026\u5E745\u670828\u65E5 18_54_19_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RoadMap1_2_0
+      name: "ChatGPT Image 2026\u5E745\u670828\u65E5 18_54_19_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 88
-        height: 21
+        width: 1254
+        height: 1254
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4316bb326f1c0a810800000000000000
-      internalID: 1774631516089573684
+      spriteID: 6781737b5d7cb8580800000000000000
+      internalID: -8823739324186552202
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RoadMap1_2_0: 1774631516089573684
+      "ChatGPT Image 2026\u5E745\u670828\u65E5 18_54_19_0": -8823739324186552202
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

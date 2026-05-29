@@ -8,26 +8,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : PlayerStatas
 {
-    [SerializeField, Header("移動速度")]
-    private float moveSpeed;
     [SerializeField, Header("弾オブジェクト")]
     private GameObject _bullet;
-    [SerializeField, Header("弾を発射する時間")]
-    private float _shootTime;
     [SerializeField, Header("残弾数リスト")]
     private List<int> _remainBulletList;
     [SerializeField]
     private TextMeshProUGUI _remainBulletText;
-    [SerializeField, Header("レベル")]
-    private int _level;
     [SerializeField, Header("経験値リスト")]
     private List<int> _expList;
     [SerializeField]
     private TextMeshProUGUI _revelText;
-    [SerializeField, Header("体力")]
-    private int _hp;
     [SerializeField, Header("点滅時間")]
     private float _damageTime;
     [SerializeField, Header("点滅周期")]
@@ -75,7 +67,7 @@ public class PlayerController : MonoBehaviour
         _input.x = Input.GetAxisRaw("Horizontal");
         _input.y = Input.GetAxisRaw("Vertical");
 
-        transform.Translate(_input.normalized * moveSpeed * Time.deltaTime);
+        transform.Translate(_input.normalized * _speed * Time.deltaTime);
 
         Vector3 pos = transform.position;
 
@@ -95,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
     private void _Shooting()
     {
-        if (_shootCount < _shootTime) return;
+        if (_shootCount < _coolTime) return;
         if(_remainBullet == 0)
         {
             Debug.Log("残弾が0です");

@@ -67,6 +67,7 @@ public class Stage1 : MonoBehaviour
         _isYesNo = false;
         _mainText = "‚¢‚ç‚Á‚µ‚á‚¢!";
         _itemSpriteRenderer = _itemPhoto.GetComponent<SpriteRenderer>();
+        _shopWindow.SetActive(false);
     }
 
     void Update()

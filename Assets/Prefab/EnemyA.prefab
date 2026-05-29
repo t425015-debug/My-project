@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 1556458149
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7977778294066961452, guid: 6137855f7af46d74cb60187597f756b9, type: 3}
+  m_Sprite: {fileID: -268455174180720455, guid: 30172ac62d6fd9740b3f5b966ac1a531, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,10 +110,10 @@ MonoBehaviour:
   - {fileID: 0}
   _shootTime: 0.8
   _hp: 2
-  _moveSpeed: 2
+  _moveSpeed: 3
   _exp: 5
   _damageEffectTime: 0.1
-  _damageSprite: {fileID: -9163963698244219721, guid: f9ff23ba5a436af4cbcb48bdf1e0f9dd, type: 3}
+  _damageSprite: {fileID: 8356820151466627960, guid: 425a90028f106b84cb0a4e631b1b8188, type: 3}
   _deadEffect: {fileID: 160291057511063860, guid: 0ca6bb5fcc0c01c45a4c9291c4d3aebb, type: 3}
 --- !u!50 &5387355586121132537
 Rigidbody2D:
@@ -209,5 +209,5 @@ MonoBehaviour:
   _moveSpeed: 2
   _exp: 0
   _damageEffectTime: 0.1
-  _damageSprite: {fileID: -1263387288560398432, guid: f9ff23ba5a436af4cbcb48bdf1e0f9dd, type: 3}
+  _damageSprite: {fileID: 8356820151466627960, guid: 425a90028f106b84cb0a4e631b1b8188, type: 3}
   _deadEffect: {fileID: 160291057511063860, guid: 0ca6bb5fcc0c01c45a4c9291c4d3aebb, type: 3}
