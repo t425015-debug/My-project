@@ -33,7 +33,6 @@ public class HPIcon : MonoBehaviour
     void Update()
     {
         _ShowHPIcon();
-
     }
 
     private void _ShowHPIcon()

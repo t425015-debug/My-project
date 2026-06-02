@@ -3,7 +3,7 @@ using UnityEngine.InputSystem.Switch;
 
 public class PlayerStatas : MonoBehaviour
 {
-
+ 
     public static float _speed = 10;
     public static float _coolTime = 0.3f;
     public static int _level = 1;

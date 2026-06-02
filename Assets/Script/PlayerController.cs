@@ -38,6 +38,7 @@ public class PlayerController : PlayerStatas
     private Enemy _enemy;
     private int _expCount;
     private int _remainBullet;
+    private int _currentHP;
 
 
     private void Start()
@@ -52,6 +53,7 @@ public class PlayerController : PlayerStatas
         _bDamage = false;    
         _expCount = 0;
         _remainBullet = _remainBulletList[_level - 1];
+        _currentHP = _hp;
     }
     void Update()
     {
@@ -128,21 +130,20 @@ public class PlayerController : PlayerStatas
 
         if(hitobj.tag == "Bullet")
         {
-            _hp -= hitobj.GetComponent<Bullet>().GetPower();
+            _currentHP -= hitobj.GetComponent<Bullet>().GetPower();
         }
         else if(hitobj.tag == "Enemy")
         {
-            _hp -= 1;
+            _currentHP -= 1;
         }
 
         _bDamage = true;
-        if(_hp <= 0)
+        if(_currentHP <= 0)
         {
             Destroy(gameObject);
             Instantiate(_deadEffect, transform.position, Quaternion.identity);
             _gameManager.DeadEffect(GameManager.ResultMode.GameOver);
             _shaker.GenerateImpulse();
-
         }
     }
 
@@ -154,7 +155,7 @@ public class PlayerController : PlayerStatas
 
     public int GetHP()
     {
-        return _hp;
+        return _currentHP;
     }
 
     public bool IsDamage()

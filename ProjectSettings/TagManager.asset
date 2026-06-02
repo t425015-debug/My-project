@@ -49,17 +49,20 @@ TagManager:
   - name: BackGround
     uniqueID: 3233569177
     locked: 0
-  - name: UI
-    uniqueID: 1232885625
-    locked: 0
   - name: Enemy
     uniqueID: 1556458149
     locked: 0
   - name: Player
     uniqueID: 2954471435
     locked: 0
+  - name: UI
+    uniqueID: 1232885625
+    locked: 0
   - name: Window
     uniqueID: 424339215
+    locked: 0
+  - name: Warning
+    uniqueID: 2573401729
     locked: 0
   m_RenderingLayers:
   - Default
