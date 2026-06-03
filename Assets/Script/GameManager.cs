@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
         Pose,
     }
 
+
     [SerializeField, Header("’x‚­‚È‚éŽžŠÔ")]
     private float _deadEffectTimeScale;
     [SerializeField,Header("ŽžŠÔ‚ðŒ³‚É–ß‚·ŽžŠÔ(PlayerŽ€–SŽž)")]
@@ -42,7 +43,6 @@ public class GameManager : MonoBehaviour
 
         if (_bShowResult)
         {
-            OnRetry();
             _ShowGameClear();
         }
     }
@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
         {
             _gameClear.SetActive(true);
             _bShowResult=true;
+            RoadMapPLayer._isCleer2 = true;
+            if (Input.GetKey(KeyCode.Space)) SceneManager.LoadScene("Map");
         }
     }
 
@@ -94,14 +96,6 @@ public class GameManager : MonoBehaviour
         return _bShowResult;
     }
 
-    public void OnRetry()
-    {
-        if (!IsShowResult()) return;
-        if (Input.GetKey(KeyCode.Space))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
 
     public void _Pose()
     {

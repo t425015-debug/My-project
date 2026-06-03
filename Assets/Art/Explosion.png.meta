@@ -178,7 +178,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Explosion_
+      name: Explosion_1
       rect:
         serializedVersion: 2
         x: 203
@@ -230,7 +230,7 @@ TextureImporter:
         width: 214
         height: 176
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -296,7 +296,7 @@ TextureImporter:
         width: 214
         height: 176
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -318,7 +318,7 @@ TextureImporter:
         width: 214
         height: 176
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -340,7 +340,7 @@ TextureImporter:
         width: 106
         height: 176
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -349,6 +349,28 @@ TextureImporter:
       bones: []
       spriteID: a1870666cc358264e99cde1015be2586
       internalID: 517154793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_9
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 530
+        width: 15
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33f6020193a4f5d4d80541f7e06e3898
+      internalID: -1408356207
       vertices: []
       indices: 
       edges: []
@@ -393,14 +415,15 @@ TextureImporter:
       "ChatGPT Image 2026\u5E745\u670824\u65E5 12_40_28_7": 7472122957810794454
       "ChatGPT Image 2026\u5E745\u670824\u65E5 12_40_28_8": 7673566679865148491
       "ChatGPT Image 2026\u5E745\u670824\u65E5 12_40_28_9": -1384456574911606405
-      Explosion_: 6471785118109241362
       Explosion_0: -2123721982
       Explosion_03: 1360183173
       Explosion_04: 1891184403
       Explosion_05: -143926606
       Explosion_06: 1500919151
+      Explosion_1: 6471785118109241362
       Explosion_7: -33844162
       Explosion_8: 517154793
+      Explosion_9: -1408356207
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

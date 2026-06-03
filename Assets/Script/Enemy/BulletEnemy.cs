@@ -4,6 +4,7 @@ public class BulletEnemy : Enemy
 {
     protected override void _Attack()
     {
+        Debug.Log("a");
         _Shooting();
     }
 

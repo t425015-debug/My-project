@@ -105,12 +105,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet: []
   _shootTime: 0
-  _hp: 4
+  _hp: 1
   _moveSpeed: 1
   _exp: 5
   _damageEffectTime: 0.1
   _damageSprite: {fileID: -6809705110046108450, guid: 4de32a229ee946b468e4da48bb110101, type: 3}
-  _deadEffect: {fileID: 7689972949608118400, guid: b60be9f133814a84d8c9882b83f4d11c, type: 3}
+  _deadEffect: {fileID: 7621274127194761378, guid: 73646ba637c12554783c910fa9cbffb4, type: 3}
 --- !u!50 &1966335112329028448
 Rigidbody2D:
   serializedVersion: 5

@@ -440,7 +440,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1340495861
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 3224163114295675435, guid: f9ff23ba5a436af4cbcb48bdf1e0f9dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -492,6 +492,12 @@ MonoBehaviour:
   - {fileID: 612017446}
   - {fileID: 1830825168}
   - {fileID: 1645745830}
+  _planetNamesTexts:
+  - "\u30DB\u30FC\u30E0"
+  - "\u30B7\u30FC\u30E0\u30F3"
+  - "\u30B7\u30E3\u30F3\u30EA\u30F3"
+  - "\u30B3\u30F3\u30C8\u30EA\u30E3\u30F3"
+  - "\u30DB\u30FC\u30E0"
   _itemText: {fileID: 641374775}
   _planetWindow: {fileID: 1448300377}
   _planetSprites:
@@ -502,6 +508,16 @@ MonoBehaviour:
   - {fileID: 6015736604984624133, guid: 7fa07e8cce00b8c4b9caf07f0316a681, type: 3}
   _planetNameGameObject: {fileID: 2056814674}
   _planetWindowGameObject: {fileID: 1976540574}
+  _hatena3: {fileID: 630495612}
+  _hatena4: {fileID: 374014495}
+  _hatena5: {fileID: 159551315}
+  _planetObject3: {fileID: 2092980180}
+  _planetObject4: {fileID: 313402661}
+  _planetObject5: {fileID: 2030889117}
+  _planetNameText3: {fileID: 612017446}
+  _planetNameText4: {fileID: 1830825168}
+  _planetNameText5: {fileID: 1645745830}
+  Score: 0
 --- !u!1 &216524589
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +1000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1016.2774, y: 517.4767}
+  m_AnchoredPosition: {x: 983.67, y: 517.4767}
   m_SizeDelta: {x: 228.2, y: 65.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &612017446
@@ -1007,10 +1023,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30B7\u30E3\u30F3\u30EA\u30F3"
+  m_text: ?????
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44d895c264920f54c945d2df144254bd, type: 2}
+  m_sharedMaterial: {fileID: -8781076008477239993, guid: 44d895c264920f54c945d2df144254bd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1072,7 +1088,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -69.89844, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1662,6 +1678,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1114621811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1114621812}
+  - component: {fileID: 1114621813}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1114621812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114621811}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1114621813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114621811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29da647998e74f846815b3cf3668da9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1187200545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2942,10 +3002,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30DB\u30FC\u30E0"
+  m_text: ?????
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44d895c264920f54c945d2df144254bd, type: 2}
+  m_sharedMaterial: {fileID: -8781076008477239993, guid: 44d895c264920f54c945d2df144254bd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3191,8 +3251,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1410.3574, y: 517.4767}
-  m_SizeDelta: {x: 228.2, y: 65.2}
+  m_AnchoredPosition: {x: 1411, y: 517.4767}
+  m_SizeDelta: {x: 247.1874, y: 65.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1830825168
 MonoBehaviour:
@@ -3214,10 +3274,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30B3\u30F3\u30C8\u30EA\u30E3\u30F3"
+  m_text: ?????
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44d895c264920f54c945d2df144254bd, type: 2}
+  m_sharedMaterial: {fileID: -8781076008477239993, guid: 44d895c264920f54c945d2df144254bd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3925,3 +3985,4 @@ SceneRoots:
   - {fileID: 2080526424}
   - {fileID: 1192598421}
   - {fileID: 162661395}
+  - {fileID: 1114621812}

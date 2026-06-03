@@ -18,6 +18,10 @@ public class PlayerController : PlayerStatas
     private TextMeshProUGUI _remainBulletText;
     [SerializeField, Header("経験値リスト")]
     private List<int> _expList;
+    [SerializeField, Header("レベルHPリスト")]
+    private List<int> _levelHPList;
+    [SerializeField, Header("レベル攻撃力リスト")]
+    private List<int> _levelPowerList;
     [SerializeField]
     private TextMeshProUGUI _revelText;
     [SerializeField, Header("点滅時間")]
@@ -39,7 +43,7 @@ public class PlayerController : PlayerStatas
     private int _expCount;
     private int _remainBullet;
     private int _currentHP;
-
+    public int _currentPower;
 
     private void Start()
     {
@@ -54,6 +58,9 @@ public class PlayerController : PlayerStatas
         _expCount = 0;
         _remainBullet = _remainBulletList[_level - 1];
         _currentHP = _hp;
+        _currentPower = _power;
+
+        Debug.Log($"Player Start : {gameObject.name}");
     }
     void Update()
     {
@@ -147,7 +154,7 @@ public class PlayerController : PlayerStatas
         }
     }
 
-    public void OnMOve(InputAction.CallbackContext context)
+    public void OnMove(InputAction.CallbackContext context)
     {
         _input = context.ReadValue<Vector2>();
 
@@ -156,6 +163,11 @@ public class PlayerController : PlayerStatas
     public int GetHP()
     {
         return _currentHP;
+    }
+
+    public int GetPower()
+    {
+        return _currentPower;
     }
 
     public bool IsDamage()
@@ -172,6 +184,8 @@ public class PlayerController : PlayerStatas
             _expCount -= _expList[_level - 1];
             _level++;
             _remainBullet = _remainBulletList[_level - 1];
+            _currentHP += _levelHPList[_level - 1];
+            _currentPower += _levelPowerList[_level - 1];
         }
     }
 

@@ -7,8 +7,7 @@ using Unity.VisualScripting;
 using TMPro;
 
 public class RoadMapPLayer : PlayerStatas
-{
-
+{ 
     [SerializeField]  float moveSpeed;
     [SerializeField, Header("PlanetName")]
     private TextMeshProUGUI _planetName;
@@ -22,6 +21,8 @@ public class RoadMapPLayer : PlayerStatas
     private TextMeshProUGUI _playerHpText;
     [SerializeField, Header("惑星の名前リスト")]
     private List<TextMeshProUGUI> _planetNameTexts;
+    [SerializeField, Header("惑星の名前stringリスト")]
+    private List<string> _planetNamesTexts;
     [SerializeField, Header("アイテムテキスト")]
     private TextMeshProUGUI _itemText;
     [SerializeField, Header("ウィンドウ")]
@@ -33,8 +34,38 @@ public class RoadMapPLayer : PlayerStatas
     [SerializeField, Header("ウィンドウプラネット")]
     private GameObject _planetWindowGameObject;
 
+    [SerializeField, Header("はてな３")]
+    private GameObject _hatena3;
+    [SerializeField, Header("はてな4")]
+    private GameObject _hatena4;
+    [SerializeField, Header("はてな5")]
+    private GameObject _hatena5;
+
+    [SerializeField, Header("惑星オブジェクト３")]
+    private GameObject _planetObject3;
+    [SerializeField, Header("惑星オブジェクト4")]
+    private GameObject _planetObject4;
+    [SerializeField, Header("惑星オブジェクト5")]
+    private GameObject _planetObject5;
+
+    [SerializeField, Header("惑星名前3")]
+    private TextMeshProUGUI _planetNameText3;
+    [SerializeField, Header("惑星名前4")]
+    private TextMeshProUGUI _planetNameText4;
+    [SerializeField, Header("惑星名前5")]
+    private TextMeshProUGUI _planetNameText5;
+
+
+    public static RoadMapPLayer Instance;
+
+
     bool isMoving;
     bool isWindowOpen;
+    public static bool _isCleer2;
+    public static bool _isCleer3;
+    public static bool _isCleer4;
+
+
     Vector2 input;
     int lane = 0;
     Vector3 pos;
@@ -50,7 +81,14 @@ public class RoadMapPLayer : PlayerStatas
         7.3f
     };
 
-    private void _LaneMove()
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    public int Score;
+
+private void _LaneMove()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -124,6 +162,7 @@ public class RoadMapPLayer : PlayerStatas
         pos = transform.position;
         _currentPlanet = 0;
         _planetSptiteRenderer = _planetWindowGameObject.GetComponent<SpriteRenderer>();
+        _UnlockStage();
     }
 
     void Update()
@@ -177,4 +216,25 @@ public class RoadMapPLayer : PlayerStatas
         _planetSptiteRenderer.sprite = _planetSprite;
     }
 
+    private void _UnlockStage()
+    {
+        if (_isCleer2)
+        {
+            _hatena3.SetActive(false);
+            _planetObject3.SetActive(true);
+            _planetNameText3.text = $"{_planetNamesTexts[3]}";
+        }
+        if (_isCleer3)
+        {
+            _hatena4.SetActive(false);
+            _planetObject4.SetActive(true);
+            _planetNameText4.text = $"{_planetNamesTexts[4]}";
+        }
+        if (_isCleer4)
+        {
+            _hatena5.SetActive(false);
+            _planetObject5.SetActive(true);
+            _planetNameText5.text = $"{_planetNamesTexts[5]}";
+        }
+    }
 }

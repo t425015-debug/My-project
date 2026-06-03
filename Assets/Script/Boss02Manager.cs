@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 
-public class Stage1Manager : MonoBehaviour
+public class Boss02Manager : MonoBehaviour
 {
     [SerializeField, Header("ワーニングオブジェクト")]
     private GameObject _warningObject;
@@ -32,9 +32,11 @@ public class Stage1Manager : MonoBehaviour
 
     [SerializeField, Header("暗転")]
     private GameObject _bossBlack;
+
+    private Transform _canvas;
     void Start()
     {
-        _warningObject.SetActive(false);
+        _canvas = FindFirstObjectByType<Canvas>().transform;
         StartCoroutine(_Warning());
     }
 
@@ -45,9 +47,11 @@ public class Stage1Manager : MonoBehaviour
     IEnumerator _Warning()
     {
         yield return new WaitForSeconds(_warningStartTime);
-        _warningObject.SetActive(true);
+        GameObject W = Instantiate(_warningObject, _canvas);
+
+
         yield return new WaitForSeconds(_warningTime);
-        _warningObject.SetActive(false );
+        Destroy(W);
         yield return new WaitForSeconds(_warningTime);
         StartCoroutine(_SpownBoss());
     }
@@ -55,12 +59,12 @@ public class Stage1Manager : MonoBehaviour
     IEnumerator _SpownBoss()
     {
         yield return new WaitForSeconds(_bossStartTime);
-        _bossStart.SetActive(true);
-        yield return new WaitForSeconds(_blackStartTime); 
-        _bossBlack.SetActive(true);
+        GameObject _BOSSSTART = Instantiate(_bossStart);
+        yield return new WaitForSeconds(_blackStartTime);
+        GameObject B = Instantiate(_bossBlack, _canvas);
         yield return new WaitForSeconds(_blackTime);
-        _bossBlack.SetActive(false);
-        _bossStart.SetActive(false);
+        Destroy(B);
+        Destroy(_BOSSSTART);
         Instantiate(_boss);
     }
 }

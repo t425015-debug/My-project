@@ -74,12 +74,6 @@ public class Umibouzu : Enemy
         }
     }
 
-    protected override void _Move()
-    {
-
-    }
-
-
     protected override void _Dead()
     {
         _gameManager.DeadEffect(GameManager.ResultMode.GameClear);

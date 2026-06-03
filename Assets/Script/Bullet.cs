@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField, Header("’e‚Ì‘¬“x")]
     private float _speed;
-    [SerializeField, Header("’e‚ÌˆÐ—Í")]
+    [SerializeField]
     private int _power;
 
     private Rigidbody2D _rigid;

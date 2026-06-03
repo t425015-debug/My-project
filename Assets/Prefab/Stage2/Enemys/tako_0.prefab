@@ -106,12 +106,12 @@ MonoBehaviour:
   _bullet:
   - {fileID: 8861682698038238782, guid: e2e313324679c2d46ae3f45e83bdd290, type: 3}
   _shootTime: 1.5
-  _hp: 10
+  _hp: 5
   _moveSpeed: 1
-  _exp: 10
+  _exp: 15
   _damageEffectTime: 0.1
   _damageSprite: {fileID: -4674639479854284897, guid: 267e4c6f0f2069c49ab731055cf0cded, type: 3}
-  _deadEffect: {fileID: 7689972949608118400, guid: b60be9f133814a84d8c9882b83f4d11c, type: 3}
+  _deadEffect: {fileID: 7621274127194761378, guid: 73646ba637c12554783c910fa9cbffb4, type: 3}
 --- !u!50 &2556791018294509307
 Rigidbody2D:
   serializedVersion: 5

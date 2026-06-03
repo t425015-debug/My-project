@@ -61,13 +61,13 @@ public class Enemy : MonoBehaviour
 
     protected virtual void _Attack()
     {
-        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            _hp -= collision.gameObject.GetComponent<Bullet>().GetPower();
+            PlayerController player = _player.GetComponent<PlayerController>();
+            _hp -= collision.gameObject.GetComponent<Bullet>().GetPower() + player.GetPower();
             StartCoroutine(_Damage());
             if (_hp <= 0)
             {
@@ -108,9 +108,14 @@ public class Enemy : MonoBehaviour
                 .GetComponent<PlayerController>()
                 .AddExp(_exp);
         }
-            GameObject effect = Instantiate(_deadEffect, transform.position, Quaternion.identity);
-        effect.transform.localScale = transform.localScale;
+        StartCoroutine(_DeadEffect());
         Destroy(gameObject);
     }
 
+    IEnumerator _DeadEffect()
+    {
+        GameObject effect = Instantiate(_deadEffect, transform.position, Quaternion.identity);
+        effect.transform.localScale = transform.localScale;
+        yield return new WaitForSeconds(2f); 
+    }
 }

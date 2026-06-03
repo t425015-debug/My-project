@@ -13,11 +13,12 @@ public class HPIcon : MonoBehaviour
     private int _beforeHP;
     private List<GameObject> _hpIconList;
 
-    void Start()
+    private void Start()
     {
-        _beforeHP = _player.GetHP();
         _hpIconList = new List<GameObject>();
+
         _CreateIcon();
+        _beforeHP = _player.GetHP();
     }
 
     private void _CreateIcon()
@@ -34,14 +35,23 @@ public class HPIcon : MonoBehaviour
     {
         _ShowHPIcon();
     }
-
     private void _ShowHPIcon()
     {
         if (_beforeHP == _player.GetHP()) return;
-        for(int i = 0; i < _hpIconList.Count; i++)
+
+        // HP‚ª‘‚¦‚½ê‡
+        while (_hpIconList.Count < _player.GetHP())
+        {
+            GameObject icon = Instantiate(_hpIcon, transform);
+            _hpIconList.Add(icon);
+        }
+
+        // •\Ž¦XV
+        for (int i = 0; i < _hpIconList.Count; i++)
         {
             _hpIconList[i].SetActive(i < _player.GetHP());
         }
+
         _beforeHP = _player.GetHP();
     }
 }

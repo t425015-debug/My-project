@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1956888881661731566}
   - component: {fileID: 3987893613345050580}
-  - component: {fileID: 588512665540304479}
   - component: {fileID: 4487739791542782499}
   - component: {fileID: 7581332842997751442}
   - component: {fileID: 9185557367374037634}
+  - component: {fileID: -1998683083447896597}
   m_Layer: 7
   m_Name: kurage_0
   m_TagString: Enemy
@@ -91,27 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &588512665540304479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5274802599849349945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b97252086ddb3047b152e52681827ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bullet:
-  - {fileID: 8861682698038238782, guid: e2e313324679c2d46ae3f45e83bdd290, type: 3}
-  _shootTime: 0.8
-  _hp: 2
-  _moveSpeed: 3
-  _exp: 5
-  _damageEffectTime: 0.1
-  _damageSprite: {fileID: 8356820151466627960, guid: 425a90028f106b84cb0a4e631b1b8188, type: 3}
-  _deadEffect: {fileID: 7689972949608118400, guid: b60be9f133814a84d8c9882b83f4d11c, type: 3}
 --- !u!50 &4487739791542782499
 Rigidbody2D:
   serializedVersion: 5
@@ -187,3 +166,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecccb3369f9a684e836807781bb3275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1998683083447896597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5274802599849349945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7fe540361cd364faf4c81d275f37e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bullet:
+  - {fileID: 8861682698038238782, guid: e2e313324679c2d46ae3f45e83bdd290, type: 3}
+  _shootTime: 0.8
+  _hp: 1
+  _moveSpeed: 3
+  _exp: 10
+  _damageEffectTime: 0.1
+  _damageSprite: {fileID: 8356820151466627960, guid: 425a90028f106b84cb0a4e631b1b8188, type: 3}
+  _deadEffect: {fileID: 7621274127194761378, guid: 73646ba637c12554783c910fa9cbffb4, type: 3}
