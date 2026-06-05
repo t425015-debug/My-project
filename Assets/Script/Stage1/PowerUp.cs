@@ -3,8 +3,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.Switch;
 
-public class PowerUp : PlayerStatas
+public class PowerUp : MonoBehaviour
 {
+    [SerializeField]
+    private PlayerStatas _playerStatas;
+
     [SerializeField, Header("パワーアップ選択テキスト")]
     private List<TextMeshProUGUI> _powerUpSelectTexts;
     [SerializeField, Header("パワーアップ選択オブジェクト")]
@@ -46,18 +49,18 @@ public class PowerUp : PlayerStatas
         _currentYesNo = 1;
         _isYesNo = false;
 
-        _powerLevel = 1;
-        _coolTimeLevel = 1;
-        _hpLevel = 1;
+        _playerStatas._powerLevel = 1;
+        _playerStatas._coolTimeLevel = 1;
+        _playerStatas._hpLevel = 1;
     }
 
     public void _PowerUp()
     {
         _stage1._mainText = "どれを強化する？";
         _powerUpObject.SetActive(true);
-        _powerIndexText.text = $"{_power}";
-        _coolTimeIndexText.text = $"{_coolTime}秒";
-        _hpIndextext.text = $"{_hp}";
+        _powerIndexText.text = $"{_playerStatas._power}";
+        _coolTimeIndexText.text = $"{_playerStatas._coolTime}秒";
+        _hpIndextext.text = $"{_playerStatas._hp}";
  
         if (!_isYesNo)
         {
@@ -85,21 +88,22 @@ public class PowerUp : PlayerStatas
                     switch (_currentPowerUpSelect)
                     {
                         case 0:
-                            _powerLevel++;
-                            _power = _powerLevelLists[_powerLevel - 1];
-                            _powerIndexText.text = $"{_power}";
-                            _powerLeveltext.text = $"Lv:{_powerLevel}"; break;
+                            _playerStatas._powerLevel++;
+                            _playerStatas._power = _powerLevelLists[_playerStatas._powerLevel - 1];
+                            _powerIndexText.text = $"{_playerStatas._power}";
+                            _powerLeveltext.text = $"Lv:{_playerStatas._powerLevel}"; break;
 
                         case 1:
-                            _coolTimeLevel++;
-                            _coolTime = _coolTimeLevelLists[_coolTimeLevel - 1];
-                            _coolTimeIndexText.text = $"{_coolTime}";
-                            _coolTimeLevelText.text = $"Lv:{_coolTimeLevel}"; break;
+                            _playerStatas._coolTimeLevel++;
+                            _playerStatas._coolTime = _coolTimeLevelLists[_playerStatas._coolTimeLevel - 1];
+                            _coolTimeIndexText.text = $"{_playerStatas._coolTime}";
+                            _coolTimeLevelText.text = $"Lv:{_playerStatas._coolTimeLevel}"; break;
 
-                        case 2: _hpLevel++;
-                            _hp = _hpLevelLists[_hpLevel - 1];
-                            _hpIndextext.text = $"{_hp}";
-                            _hpLevelText.text = $"Lv:{_hpLevel}"; break;
+                        case 2:
+                            _playerStatas._hpLevel++;
+                            _playerStatas._hp = _hpLevelLists[_playerStatas._hpLevel - 1];
+                            _hpIndextext.text = $"{_playerStatas._hp}";
+                            _hpLevelText.text = $"Lv:{_playerStatas._hpLevel}"; break;
                     }
                 }
    

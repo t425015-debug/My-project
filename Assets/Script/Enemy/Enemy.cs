@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
         {
             _player = FindFirstObjectByType<PlayerController>().gameObject;
         }
+        
         _shootCount = 0;
         _bAttack = false;
         _rigid = GetComponent<Rigidbody2D>();
@@ -104,12 +105,11 @@ public class Enemy : MonoBehaviour
     {
         if (_player != null)
         {
-            _player
-                .GetComponent<PlayerController>()
-                .AddExp(_exp);
+            _player.GetComponent<PlayerController>().AddExp(_exp);
         }
         StartCoroutine(_DeadEffect());
         Destroy(gameObject);
+        _gameManager._countBreakEnemy++;
     }
 
     IEnumerator _DeadEffect()

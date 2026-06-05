@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,14 @@ public class GameManager : MonoBehaviour
         Pose,
     }
 
+    [SerializeField]
+    private PlayerStatas _playerStatas;
+
+    [SerializeField, Header("Player")]
+    private PlayerController _player;
+    [SerializeField]
+    private HPIcon _hpIcon;
+
 
     [SerializeField, Header("遅くなる時間")]
     private float _deadEffectTimeScale;
@@ -21,29 +30,54 @@ public class GameManager : MonoBehaviour
     private float _bossDeadEffectTime;
     [SerializeField, Header("ゲームオーバー")]
     private GameObject _gameOver;
-    [SerializeField, Header("ゲームクリア")]
-    private GameObject _gameClear;
-
+    [SerializeField, Header("ゲームクリアリザルト")]
+    private GameObject _gameClearResult;
+    [SerializeField, Header("リザルトレベルテキスト")]
+    private TextMeshProUGUI _resultLevelText;
+    [SerializeField, Header("リザルトHPテキスト")]
+    private TextMeshProUGUI _resultHPText;
+    [SerializeField, Header("入手お金テキスト")]
+    private TextMeshProUGUI _getMoneyText;
+    [SerializeField, Header("倒した敵テキスト")]
+    private TextMeshProUGUI _resultEnemyText;
     [SerializeField, Header("ポーズウィンドウ")]
     private GameObject _poseWindow;
 
     private bool _bShowResult;
+    private bool _result;
     private ResultMode _resultMode;
-    private BossDeadEffect _bossDeadEffect;
+    public BossDeadEffect _bossDeadEffect;
+    private int _getMoney;
+
+    public int _countBreakEnemy;
+    public int _countPlayerLevel;
+    public int _countPlayerHP;
 
     void Start()
     {
         _bShowResult = false;
+        _result = false;
         _resultMode = ResultMode.None;
         _bossDeadEffect = null;
+         _countBreakEnemy = 0;
+         _countPlayerLevel = 0;
+         _countPlayerHP = 0;
+        _gameClearResult.SetActive(false);
     }
-    void Update()
+void Update()
     {
         _Pose();
 
         if (_bShowResult)
         {
             _ShowGameClear();
+
+            if (_resultMode == ResultMode.GameOver &&
+           Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene(
+                    SceneManager.GetActiveScene().name);
+            }
         }
     }
 
@@ -59,8 +93,17 @@ public class GameManager : MonoBehaviour
 
         if (_bossDeadEffect.IsEnd())
         {
-            _gameClear.SetActive(true);
-            _bShowResult=true;
+            _result = true;
+            _countPlayerLevel = _player._ResultCount();
+            _countPlayerHP = _hpIcon._ResultHPCount();
+            _resultLevelText.text = $"プレイヤーのレベル：{_countPlayerLevel}";
+            _resultEnemyText.text = $"倒した敵の数：{_countBreakEnemy}";
+            _resultHPText.text = $"プレイヤーの残りHP： {_countPlayerHP}";
+            _getMoney = _countPlayerLevel * 200 + _countBreakEnemy * 100 + _countPlayerHP * 300;
+            _playerStatas._money += _getMoney;
+            _getMoneyText.text = $"{_getMoney}G";
+            _gameClearResult.SetActive(true);
+            _bShowResult =true;
             RoadMapPLayer._isCleer2 = true;
             if (Input.GetKey(KeyCode.Space)) SceneManager.LoadScene("Map");
         }

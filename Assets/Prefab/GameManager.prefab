@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8527782835473018598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 420490524776668585}
+  - component: {fileID: 4105536034305310562}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &420490524776668585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8527782835473018598}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4105536034305310562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8527782835473018598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad26e8ba34fcd34a825e4e353afd375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerStatas: {fileID: 11400000, guid: 05edc77280ed56841802815e46bcc264, type: 2}
+  _player: {fileID: 2437862420649019716, guid: 51002aba36bd59d4d8753e0589cfc1e7, type: 3}
+  _deadEffectTimeScale: 0.5
+  _deadEffectTime: 1.5
+  _bossDeadEffectTime: 2
+  _gameOver: {fileID: 0}
+  _gameClearResult: {fileID: 0}
+  _resultLevelText: {fileID: 0}
+  _resultHPText: {fileID: 0}
+  _getMoneyText: {fileID: 0}
+  _resultEnemyText: {fileID: 0}
+  _poseWindow: {fileID: 0}
+  _bossDeadEffect: {fileID: 5907843726079186843, guid: 025b875c03357f74b9273dc0b34035ee, type: 3}
+  _countBreakEnemy: 0
+  _countPlayerLevel: 0
+  _countPlayerHP: 0

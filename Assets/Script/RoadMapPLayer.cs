@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 using TMPro;
 
-public class RoadMapPLayer : PlayerStatas
-{ 
+public class RoadMapPLayer : MonoBehaviour
+{
+    [SerializeField]
+    private PlayerStatas _playerStatas;
+
     [SerializeField]  float moveSpeed;
     [SerializeField, Header("PlanetName")]
     private TextMeshProUGUI _planetName;
@@ -209,9 +212,9 @@ private void _LaneMove()
     {
         _planetWindow.SetActive(true);
         _planetNameGameObject.SetActive(false);
-        _playerPowerText.text = $"çUåÇóÕ:{_power}(Lv:{_powerLevel})";
-        _playerCoolTimeText.text = $"CÉ^ÉCÉÄ:{_coolTime}ïb(Lv:{_coolTimeLevel})";
-        _playerHpText.text = $"ëÃóÕ:{_hp}(Lv:{_hpLevel})";
+        _playerPowerText.text = $"çUåÇóÕ:{_playerStatas._power}(Lv:{_playerStatas._powerLevel})";
+        _playerCoolTimeText.text = $"CÉ^ÉCÉÄ:{_playerStatas._coolTime}ïb(Lv:{_playerStatas._coolTimeLevel})";
+        _playerHpText.text = $"ëÃóÕ:{_playerStatas._hp} (Lv: {_playerStatas._hpLevel})";
         _planetName.text = _planetText.text;
         _planetSptiteRenderer.sprite = _planetSprite;
     }

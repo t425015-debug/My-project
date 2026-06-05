@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 public class HPIcon : MonoBehaviour
 {
-    [SerializeField] private PlayerController _player;
+    [SerializeField]
+    private PlayerController _player;
 
     [SerializeField, Header("HPÉAÉCÉRÉì")]
     private GameObject _hpIcon;
@@ -25,8 +26,7 @@ public class HPIcon : MonoBehaviour
     {
         for (int i = 0; i < _player.GetHP(); i++)
         {
-            GameObject icon = Instantiate(_hpIcon);
-            icon.transform.SetParent(transform);
+            GameObject icon = Instantiate(_hpIcon, transform);
             _hpIconList.Add(icon);
         }
     }
@@ -53,5 +53,10 @@ public class HPIcon : MonoBehaviour
         }
 
         _beforeHP = _player.GetHP();
+    }
+
+    public int _ResultHPCount()
+    {
+        return _beforeHP;
     }
 }

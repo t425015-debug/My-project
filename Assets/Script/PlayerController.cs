@@ -8,8 +8,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : PlayerStatas
+public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private PlayerStatas _playerStatas;
+
+    [SerializeField]
+    private GameObject _UI;
+
     [SerializeField, Header("弾オブジェクト")]
     private GameObject _bullet;
     [SerializeField, Header("残弾数リスト")]
@@ -34,7 +40,7 @@ public class PlayerController : PlayerStatas
     private Vector2 _input;
     private Rigidbody2D _rigid;
     private SpriteRenderer _spriteRenderer;
-    private GameManager _gameManager;
+    public GameManager _gameManager;
     private CinemachineImpulseSource _shaker;
     private float _shootCount;
     private float _damageTimeCount;
@@ -44,6 +50,7 @@ public class PlayerController : PlayerStatas
     private int _remainBullet;
     private int _currentHP;
     public int _currentPower;
+    private int _currentLevel;
 
     private void Start()
     {
@@ -56,17 +63,16 @@ public class PlayerController : PlayerStatas
         _damageTimeCount = 0;
         _bDamage = false;    
         _expCount = 0;
-        _remainBullet = _remainBulletList[_level - 1];
-        _currentHP = _hp;
-        _currentPower = _power;
-
-        Debug.Log($"Player Start : {gameObject.name}");
+        _currentLevel = _playerStatas._level;
+        _remainBullet = _remainBulletList[_currentLevel - 1];
+        _currentHP = _playerStatas._hp;
+        _currentPower = _playerStatas._power;
     }
     void Update()
     {
          _Move();
         _Damage();
-        _revelText.text = $"Lv:{_level}";
+        _revelText.text = $"Lv:{_currentLevel}";
         _remainBulletText.text = $"Bullet{_remainBullet}";
         _LevelCheck();
     }
@@ -76,7 +82,7 @@ public class PlayerController : PlayerStatas
         _input.x = Input.GetAxisRaw("Horizontal");
         _input.y = Input.GetAxisRaw("Vertical");
 
-        transform.Translate(_input.normalized * _speed * Time.deltaTime);
+        transform.Translate(_input.normalized * _playerStatas._speed * Time.deltaTime);
 
         Vector3 pos = transform.position;
 
@@ -96,7 +102,7 @@ public class PlayerController : PlayerStatas
 
     private void _Shooting()
     {
-        if (_shootCount < _coolTime) return;
+        if (_shootCount < _playerStatas._coolTime) return;
         if(_remainBullet == 0)
         {
             Debug.Log("残弾が0です");
@@ -177,15 +183,15 @@ public class PlayerController : PlayerStatas
 
     private void _LevelCheck()
     {
-        if (_level > _expList[_expList.Count - 1]) return; // 最大レベルならreturn
+        if (_currentLevel > _expList[_expList.Count - 1]) return; // 最大レベルならreturn
 
-        if (_expList[_level - 1] - _expCount <= 0)
+        if (_expList[_currentLevel - 1] - _expCount <= 0)
         {
-            _expCount -= _expList[_level - 1];
-            _level++;
-            _remainBullet = _remainBulletList[_level - 1];
-            _currentHP += _levelHPList[_level - 1];
-            _currentPower += _levelPowerList[_level - 1];
+            _expCount -= _expList[_currentLevel - 1];
+            _currentLevel++;
+            _remainBullet = _remainBulletList[_currentLevel - 1];
+            _currentHP += _levelHPList[_currentLevel - 1];
+            _currentPower += _levelPowerList[_currentLevel - 1];
         }
     }
 
@@ -196,5 +202,11 @@ public class PlayerController : PlayerStatas
         Debug.Log("EXP : " + _expCount);
 
         _LevelCheck();
+    }
+
+    public int _ResultCount()
+    {
+        return _currentLevel;
+
     }
 }
