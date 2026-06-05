@@ -481,6 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerStatas: {fileID: 11400000, guid: 05edc77280ed56841802815e46bcc264, type: 2}
+  _flagData: {fileID: 11400000, guid: a37cac1592b8f994fb0c68fe4b37f79c, type: 2}
   moveSpeed: 5
   _planetName: {fileID: 1362286942}
   _planetSptiteRenderer: {fileID: 1976540576}
@@ -518,6 +519,7 @@ MonoBehaviour:
   _planetNameText3: {fileID: 612017446}
   _planetNameText4: {fileID: 1830825168}
   _planetNameText5: {fileID: 1645745830}
+  _canMoveLane: 1
   Score: 0
 --- !u!1 &216524589
 GameObject:

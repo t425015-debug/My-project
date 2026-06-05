@@ -12,6 +12,9 @@ public class Umibouzu : Enemy
         Normal2,
     }
 
+    [SerializeField]
+    private FlagData _flagData;
+
     [SerializeField, Header("移動範囲")]
     private float _limitPosY;
     [SerializeField, Header("ダメージ範囲オブジェクト")]
@@ -77,6 +80,7 @@ public class Umibouzu : Enemy
     protected override void _Dead()
     {
         _gameManager.DeadEffect(GameManager.ResultMode.GameClear);
+        _flagData._stageCleer2 = true;
         base._Dead();
     }
 

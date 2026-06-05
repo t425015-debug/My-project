@@ -186,6 +186,7 @@ MonoBehaviour:
   _damageEffectTime: 0.1
   _damageSprite: {fileID: 0}
   _deadEffect: {fileID: 7618384344483003616, guid: 025b875c03357f74b9273dc0b34035ee, type: 3}
+  _flagData: {fileID: 11400000, guid: a37cac1592b8f994fb0c68fe4b37f79c, type: 2}
   _limitPosY: 0
   _damageCircle: {fileID: 4243857808841850689, guid: d1cf53b2ee687f14f9dde4c2c28d493d, type: 3}
   _normalAttackCount1: 3

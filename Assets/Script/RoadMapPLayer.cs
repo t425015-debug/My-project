@@ -10,6 +10,8 @@ public class RoadMapPLayer : MonoBehaviour
 {
     [SerializeField]
     private PlayerStatas _playerStatas;
+    [SerializeField]
+    private FlagData _flagData;
 
     [SerializeField]  float moveSpeed;
     [SerializeField, Header("PlanetName")]
@@ -57,6 +59,8 @@ public class RoadMapPLayer : MonoBehaviour
     private TextMeshProUGUI _planetNameText4;
     [SerializeField, Header("惑星名前5")]
     private TextMeshProUGUI _planetNameText5;
+    [SerializeField, Header("動けるレーン数")]
+    private int _canMoveLane;
 
 
     public static RoadMapPLayer Instance;
@@ -64,9 +68,6 @@ public class RoadMapPLayer : MonoBehaviour
 
     bool isMoving;
     bool isWindowOpen;
-    public static bool _isCleer2;
-    public static bool _isCleer3;
-    public static bool _isCleer4;
 
 
     Vector2 input;
@@ -106,8 +107,8 @@ private void _LaneMove()
         }
 
         // 範囲制限
-        lane = Mathf.Clamp(lane, 0, 4);
-        _currentPlanet = Mathf.Clamp(_currentPlanet, 0, 4);
+        lane = Mathf.Clamp(lane, 0, _canMoveLane);
+        _currentPlanet = Mathf.Clamp(_currentPlanet, 0, _canMoveLane);
 
         // レーン位置へ移動
         pos.x = laneX[lane];
@@ -221,23 +222,26 @@ private void _LaneMove()
 
     private void _UnlockStage()
     {
-        if (_isCleer2)
+        if (_flagData._stageCleer2)
         {
             _hatena3.SetActive(false);
             _planetObject3.SetActive(true);
-            _planetNameText3.text = $"{_planetNamesTexts[3]}";
+            _planetNameText3.text = $"{_planetNamesTexts[2]}";
+            _canMoveLane++;
         }
-        if (_isCleer3)
+        if (_flagData._stageCleer3)
         {
             _hatena4.SetActive(false);
             _planetObject4.SetActive(true);
-            _planetNameText4.text = $"{_planetNamesTexts[4]}";
+            _planetNameText4.text = $"{_planetNamesTexts[3]}";
+            _canMoveLane++;
         }
-        if (_isCleer4)
+        if (_flagData._stageCleer4)
         {
             _hatena5.SetActive(false);
             _planetObject5.SetActive(true);
-            _planetNameText5.text = $"{_planetNamesTexts[5]}";
+            _planetNameText5.text = $"{_planetNamesTexts[4]}";
+            _canMoveLane++;
         }
     }
 }

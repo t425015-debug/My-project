@@ -3471,6 +3471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bffdfc4fc8b3704fbd4604018bca2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerStatas: {fileID: 11400000, guid: 05edc77280ed56841802815e46bcc264, type: 2}
   _mainTextBox: {fileID: 1432980440}
   _subTextBox: {fileID: 1234160906}
   _goldText: {fileID: 1357128753}

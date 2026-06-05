@@ -104,7 +104,6 @@ void Update()
             _getMoneyText.text = $"{_getMoney}G";
             _gameClearResult.SetActive(true);
             _bShowResult =true;
-            RoadMapPLayer._isCleer2 = true;
             if (Input.GetKey(KeyCode.Space)) SceneManager.LoadScene("Map");
         }
     }

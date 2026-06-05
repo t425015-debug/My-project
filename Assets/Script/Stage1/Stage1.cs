@@ -17,6 +17,9 @@ public class Stage1 : MonoBehaviour
         _Bag,
     }
 
+    [SerializeField]
+    private PlayerStatas _playerStatas;
+
     [SerializeField,Header("メインテキスト")]
     public TextMeshProUGUI _mainTextBox;
     [SerializeField, Header("行動テキストオブジェクト")]
@@ -46,7 +49,6 @@ public class Stage1 : MonoBehaviour
     [SerializeField, Header("PowerUpWindow")]
     private PowerUp _powerUp;
 
-    private int _gold;
     private int _currentMove; // 0:左上, 1: 右上, ２:左下, 3:右下
     private int _currentItem;
     public _Action _action;
@@ -58,7 +60,6 @@ public class Stage1 : MonoBehaviour
 
     void Start()
     {
-        _gold = 0;
         _currentMove = 0;
         _currentItem = 0;
         _currentYesNo = 0;
@@ -83,7 +84,7 @@ public class Stage1 : MonoBehaviour
         }
         _mainTextBox.text = $"{_mainText}";
 
-        _goldText.text = $"{_gold}";
+        _goldText.text = $"{_playerStatas._money}";
         if (_action == _Action.None)
         {
             HandleActionSelection();
