@@ -11,7 +11,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private PlayerStatas _playerStatas;
+    public PlayerStatas _playerStatas;
 
     [SerializeField]
     private GameObject _UI;
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     public GameManager _gameManager;
     private CinemachineImpulseSource _shaker;
+
     private float _shootCount;
     private float _damageTimeCount;
     private bool _bDamage;
@@ -51,6 +52,9 @@ public class PlayerController : MonoBehaviour
     private int _currentHP;
     public int _currentPower;
     private int _currentLevel;
+    public float _currentSpeed;
+    public bool _isSlow;
+    public bool _canMove;
 
     private void Start()
     {
@@ -59,6 +63,7 @@ public class PlayerController : MonoBehaviour
         _gameManager = FindFirstObjectByType<GameManager>();
         _shaker = FindAnyObjectByType<CinemachineImpulseSource>();
         _enemy = FindFirstObjectByType<Enemy>();
+
         _shootCount = 0;
         _damageTimeCount = 0;
         _bDamage = false;    
@@ -67,10 +72,13 @@ public class PlayerController : MonoBehaviour
         _remainBullet = _remainBulletList[_currentLevel - 1];
         _currentHP = _playerStatas._hp;
         _currentPower = _playerStatas._power;
+        _currentSpeed = _playerStatas._speed;
+        _isSlow = false;
+        _canMove = true;
     }
     void Update()
     {
-         _Move();
+        if(_canMove) _Move();
         _Damage();
         _revelText.text = $"Lv:{_currentLevel}";
         _remainBulletText.text = $"Bullet{_remainBullet}";
@@ -82,7 +90,7 @@ public class PlayerController : MonoBehaviour
         _input.x = Input.GetAxisRaw("Horizontal");
         _input.y = Input.GetAxisRaw("Vertical");
 
-        transform.Translate(_input.normalized * _playerStatas._speed * Time.deltaTime);
+        transform.Translate(_input.normalized * _currentSpeed * Time.deltaTime);
 
         Vector3 pos = transform.position;
 
@@ -105,9 +113,10 @@ public class PlayerController : MonoBehaviour
         if (_shootCount < _playerStatas._coolTime) return;
         if(_remainBullet == 0)
         {
-            Debug.Log("残弾が0です");
             return;
         }
+
+        AudioManager.Instance.PlaySE("ショットSE");
 
         GameObject bulletObj = Instantiate(_bullet);
         bulletObj.transform.position = transform.position + new Vector3(0f, transform.lossyScale.y / 2.0f, 0f);
@@ -141,7 +150,9 @@ public class PlayerController : MonoBehaviour
     {
         if (_bDamage) return;
 
-        if(hitobj.tag == "Bullet")
+        AudioManager.Instance.PlaySE("ダメージSE");
+
+        if (hitobj.tag == "Bullet")
         {
             _currentHP -= hitobj.GetComponent<Bullet>().GetPower();
         }
@@ -163,7 +174,6 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _input = context.ReadValue<Vector2>();
-
     }
 
     public int GetHP()
@@ -187,6 +197,7 @@ public class PlayerController : MonoBehaviour
 
         if (_expList[_currentLevel - 1] - _expCount <= 0)
         {
+            AudioManager.Instance.PlaySE("レベルアップSE");
             _expCount -= _expList[_currentLevel - 1];
             _currentLevel++;
             _remainBullet = _remainBulletList[_currentLevel - 1];
@@ -198,15 +209,23 @@ public class PlayerController : MonoBehaviour
     public void AddExp(int exp)
     {
         _expCount += exp;
-
-        Debug.Log("EXP : " + _expCount);
-
         _LevelCheck();
     }
 
     public int _ResultCount()
     {
         return _currentLevel;
+    }
 
+    public void _Slow(float amount, float time)
+    {
+        StartCoroutine(_SlowCoroutine(amount, time));
+    }
+
+    private IEnumerator _SlowCoroutine(float amount, float time)
+    {
+        _currentSpeed = Mathf.Max(1, _currentSpeed - amount);
+        yield return new WaitForSeconds(time);
+        _currentSpeed = _playerStatas._speed;
     }
 }

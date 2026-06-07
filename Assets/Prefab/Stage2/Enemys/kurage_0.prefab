@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7fe540361cd364faf4c81d275f37e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hitSE: {fileID: 8300000, guid: 1ddc1eeec74acf641b9961b45835b8fa, type: 3}
   _bullet:
   - {fileID: 8861682698038238782, guid: e2e313324679c2d46ae3f45e83bdd290, type: 3}
   _shootTime: 0.8

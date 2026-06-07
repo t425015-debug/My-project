@@ -1,10 +1,17 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField, Header("クリア音")]
+    private AudioClip _cleerSound;
+    [SerializeField, Header("BGM")]
+    private AudioClip _bgm;
+
+
     public enum ResultMode
     {
         None,
@@ -15,6 +22,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private PlayerStatas _playerStatas;
+
+    [SerializeField]
+    private Boss02Manager _boss02Manager;
 
     [SerializeField, Header("Player")]
     private PlayerController _player;
@@ -32,6 +42,8 @@ public class GameManager : MonoBehaviour
     private GameObject _gameOver;
     [SerializeField, Header("ゲームクリアリザルト")]
     private GameObject _gameClearResult;
+    [SerializeField, Header("ゲームクリアリザルトまでの時間")]
+    private float _startGameClearResultTime;
     [SerializeField, Header("リザルトレベルテキスト")]
     private TextMeshProUGUI _resultLevelText;
     [SerializeField, Header("リザルトHPテキスト")]
@@ -48,6 +60,8 @@ public class GameManager : MonoBehaviour
     private ResultMode _resultMode;
     public BossDeadEffect _bossDeadEffect;
     private int _getMoney;
+    private bool _isPlayClearSound;
+    private bool _isShowGameClearStarted;
 
     public int _countBreakEnemy;
     public int _countPlayerLevel;
@@ -63,14 +77,27 @@ public class GameManager : MonoBehaviour
          _countPlayerLevel = 0;
          _countPlayerHP = 0;
         _gameClearResult.SetActive(false);
+        _isPlayClearSound = false;
+        AudioManager.Instance.PlayBGM(_bgm);
     }
-void Update()
+    void Update()
     {
         _Pose();
 
+        if (_result && Input.GetKeyDown(KeyCode.Space))
+        {
+            AudioManager.Instance.PlaySE("決定SE");
+            SceneManager.LoadScene("Map");
+        }
+
+
         if (_bShowResult)
         {
-            _ShowGameClear();
+            if (_bShowResult && !_isShowGameClearStarted)
+            {
+                _isShowGameClearStarted = true;
+                StartCoroutine(_ShowGameClear());
+            }
 
             if (_resultMode == ResultMode.GameOver &&
            Input.GetKeyDown(KeyCode.Space))
@@ -79,6 +106,7 @@ void Update()
                     SceneManager.GetActiveScene().name);
             }
         }
+
     }
 
     public void DeadEffect(ResultMode resultMode)
@@ -87,9 +115,19 @@ void Update()
         StartCoroutine(Slow());
     }
 
-    private void _ShowGameClear()
+    private IEnumerator _ShowGameClear()
     {
-        if (_bossDeadEffect == null) return;
+        if (_bossDeadEffect == null) yield break;
+
+        yield return new WaitForSeconds(_startGameClearResultTime);
+
+        _player._canMove = false;
+        if (!_isPlayClearSound)
+        {
+            AudioManager.Instance.StopBGM();
+            AudioManager.Instance.PlaySE("ゲームクリアSE");
+            _isPlayClearSound = true;
+        }
 
         if (_bossDeadEffect.IsEnd())
         {
@@ -103,11 +141,9 @@ void Update()
             _playerStatas._money += _getMoney;
             _getMoneyText.text = $"{_getMoney}G";
             _gameClearResult.SetActive(true);
-            _bShowResult =true;
-            if (Input.GetKey(KeyCode.Space)) SceneManager.LoadScene("Map");
+            _bShowResult = true;            
         }
     }
-
     IEnumerator Slow()
     {
         Time.timeScale = _deadEffectTimeScale;
@@ -143,6 +179,8 @@ void Update()
     {
         if (Input.GetKeyDown(KeyCode.X) && _resultMode != ResultMode.Pose)
         {
+            _player._canMove = false;
+            AudioManager.Instance.PauseBGM();
             _resultMode = ResultMode.Pose;
             _poseWindow.SetActive(true);
             Time.timeScale = 0f;
@@ -151,6 +189,8 @@ void Update()
         // ポーズ解除
         if (_resultMode == ResultMode.Pose && Input.GetKeyDown(KeyCode.Space))
         {
+            _player._canMove = true;
+            AudioManager.Instance.UnPauseBGM();
             _poseWindow.SetActive(false);
             Time.timeScale = 1.0f;
             _resultMode = ResultMode.None;

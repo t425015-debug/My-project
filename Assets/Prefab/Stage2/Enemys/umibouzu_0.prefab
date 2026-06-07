@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca4fec9cd8271d40a3b738d7ef99f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hitSE: {fileID: 8300000, guid: 1ddc1eeec74acf641b9961b45835b8fa, type: 3}
   _bullet:
   - {fileID: 7609697780272548096, guid: e1b1d5cc8d6d50a43af83cf492a89bc1, type: 3}
   - {fileID: 4344955057700579142, guid: 22f33a4690e9b4745904998f676e0af9, type: 3}
@@ -186,6 +187,8 @@ MonoBehaviour:
   _damageEffectTime: 0.1
   _damageSprite: {fileID: 0}
   _deadEffect: {fileID: 7618384344483003616, guid: 025b875c03357f74b9273dc0b34035ee, type: 3}
+  _call: {fileID: 8300000, guid: 2f0cc659add4b84458b6518c55341b6d, type: 3}
+  _bgm: {fileID: 8300000, guid: ef1a79de6a9463345820f29542c9ddce, type: 3}
   _flagData: {fileID: 11400000, guid: a37cac1592b8f994fb0c68fe4b37f79c, type: 2}
   _limitPosY: 0
   _damageCircle: {fileID: 4243857808841850689, guid: d1cf53b2ee687f14f9dde4c2c28d493d, type: 3}

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField, Header("ボスマネージャー")]
+    private GameObject _bossManager;
+
     [SerializeField, Header("敵オブジェクト")]
     private GameObject[] _enemy;
     [SerializeField, Header("敵を生成する時間")]
@@ -32,5 +35,17 @@ public class EnemySpawner : MonoBehaviour
             _spawnNum++;
             _spawnCount = 0.0f;
         }
+
+        if (_spawnNum >= _enemy.Length)
+        {
+            _BossSporn();
+            enabled = false; // 一度だけ実行
+            return;
+        }
+    }
+
+    private void _BossSporn()
+    {
+        _bossManager.SetActive(true);
     }
 }

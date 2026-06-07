@@ -104,6 +104,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerStatas: {fileID: 11400000, guid: 05edc77280ed56841802815e46bcc264, type: 2}
   _UI: {fileID: 0}
+  _shotSaund: {fileID: 8300000, guid: 95808624e05b5624eb317d01585062b9, type: 3}
+  _damageSound: {fileID: 8300000, guid: 1ddc1eeec74acf641b9961b45835b8fa, type: 3}
+  _levelUpSound: {fileID: 8300000, guid: 04e10c8b7ebbd1347898f8ba51da4fea, type: 3}
   _bullet: {fileID: 5649521369003549368, guid: 47e600ff0f2261b40a6e424f58afea45, type: 3}
   _remainBulletList: 14000000190000001e00000023000000280000002d00000032000000370000003c00000041000000460000004b00000050000000550000005a0000005f00000064000000690000006e00000073000000780000007d00000082000000870000008c00000091000000960000009b000000a0000000a5000000
   _remainBulletText: {fileID: 0}
@@ -116,6 +119,8 @@ MonoBehaviour:
   _deadEffect: {fileID: 7621274127194761378, guid: 73646ba637c12554783c910fa9cbffb4, type: 3}
   _gameManager: {fileID: 0}
   _currentPower: 0
+  _currentSpeed: 0
+  _isSlow: 0
 --- !u!50 &2121387541705100902
 Rigidbody2D:
   serializedVersion: 5

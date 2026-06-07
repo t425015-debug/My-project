@@ -12,6 +12,10 @@ public class Umibouzu : Enemy
         Normal2,
     }
 
+    [SerializeField, Header("BGM")]
+    private AudioClip _bgm;
+
+
     [SerializeField]
     private FlagData _flagData;
 
@@ -33,7 +37,6 @@ public class Umibouzu : Enemy
     [SerializeField, Header("スポーンエネミー")]
     private int _spornEnemyAttackCount;
 
-
     private int _currentAttackCount;
     private AttackMode _attackMode;
 
@@ -42,6 +45,8 @@ public class Umibouzu : Enemy
 
     protected override void _Initialize()
     {
+        AudioManager.Instance.PlaySE("ボス02鳴き声");
+        StartCoroutine( _BGM());
         _currentAttackCount = 0;
         _attackMode = AttackMode.Normal;
         _isWaterTower = false;
@@ -83,7 +88,7 @@ public class Umibouzu : Enemy
         _flagData._stageCleer2 = true;
         base._Dead();
     }
-
+    
     private void _NormalShoot(int _normalAttackCount, AttackMode attackMode)
     {
         _shootCount += Time.deltaTime;
@@ -117,7 +122,7 @@ public class Umibouzu : Enemy
             yield break;
         }
         _shootCount += Time.deltaTime;
-        if (_shootCount < _shootTime) yield return 0;
+        if (_shootCount < _shootTime) yield break;
 
         GameObject _damageArea = Instantiate(_damageCircle);
         _damageArea.transform.position = new Vector2(_player.transform.position.x, _player.transform.position.y - 1);
@@ -174,6 +179,11 @@ public class Umibouzu : Enemy
 
     }
 
-    
+    private IEnumerator _BGM()
+    {
+        yield return new WaitForSeconds(1.5f);
+        AudioManager.Instance.PlayBGM(_bgm);
+    }
+
 }
 

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
-{
+{    
+
     [SerializeField, Header("弾オブジェクト")]
     protected GameObject[] _bullet;
     [SerializeField, Header("弾を発射する時間")]
@@ -31,13 +32,13 @@ public class Enemy : MonoBehaviour
     private Sprite _defaultSprite;
     protected GameManager _gameManager;
 
+
     void Start()
     {
         if(FindFirstObjectByType<PlayerController>())
         {
             _player = FindFirstObjectByType<PlayerController>().gameObject;
         }
-        
         _shootCount = 0;
         _bAttack = false;
         _rigid = GetComponent<Rigidbody2D>();
@@ -67,6 +68,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
+            AudioManager.Instance.PlaySE("ダメージSE");
             PlayerController player = _player.GetComponent<PlayerController>();
             _hp -= collision.gameObject.GetComponent<Bullet>().GetPower() + player.GetPower();
             StartCoroutine(_Damage());
@@ -84,7 +86,7 @@ public class Enemy : MonoBehaviour
 
     private void OnBecameVisible()
     {
-            _bAttack = true;
+       _bAttack = true;
     }
     private void OnBecameInvisible()
     {

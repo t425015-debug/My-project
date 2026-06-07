@@ -5,6 +5,12 @@ using Unity.VisualScripting;
 
 public class Boss02Manager : MonoBehaviour
 {
+    [SerializeField]
+    private PlayerController _player;
+
+    [SerializeField, Header("警告音")]
+    private AudioClip _warnings;
+
     [SerializeField, Header("ワーニングオブジェクト")]
     private GameObject _warningObject;
 
@@ -23,6 +29,8 @@ public class Boss02Manager : MonoBehaviour
     [SerializeField, Header("暗転の時間")]
     private float _blackTime;
 
+    [SerializeField, Header("プレイヤーが移動するまでの時間")]
+    private float _PlayerCanMoveTime;
 
     [SerializeField, Header("ボスオブジェクト")]
     private GameObject _boss;
@@ -48,10 +56,11 @@ public class Boss02Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(_warningStartTime);
         GameObject W = Instantiate(_warningObject, _canvas);
-
-
+        AudioManager.Instance.PlayBGM(_warnings);
         yield return new WaitForSeconds(_warningTime);
         Destroy(W);
+        AudioManager.Instance.StopBGM();
+        _player._canMove = false;
         yield return new WaitForSeconds(_warningTime);
         StartCoroutine(_SpownBoss());
     }
@@ -66,5 +75,8 @@ public class Boss02Manager : MonoBehaviour
         Destroy(B);
         Destroy(_BOSSSTART);
         Instantiate(_boss);
+        AudioManager.Instance.PlaySE("ボス02鳴き声");
+        yield return new WaitForSeconds(_PlayerCanMoveTime);
+        _player._canMove = true;
     }
 }

@@ -3,11 +3,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField, Header("’e‚Ì‘¬“x")]
-    private float _speed;
+    protected float _speed;
     [SerializeField]
-    private int _power;
+    protected int _power;
 
-    private Rigidbody2D _rigid;
+    protected Rigidbody2D _rigid;
 
     void Start()
     {
@@ -19,12 +19,12 @@ public class Bullet : MonoBehaviour
         _Move();
     }
 
-    public void _Move()
+    protected void _Move()
     {
         _rigid.linearVelocity = transform.up * _speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
@@ -40,4 +40,5 @@ public class Bullet : MonoBehaviour
     {
         return _power;
     }
+
 }

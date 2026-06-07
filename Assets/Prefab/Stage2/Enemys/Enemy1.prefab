@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b97252086ddb3047b152e52681827ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hitSE: {fileID: 8300000, guid: 1ddc1eeec74acf641b9961b45835b8fa, type: 3}
   _bullet: []
   _shootTime: 0
   _hp: 1
