@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private AudioClip _cleerSound;
     [SerializeField, Header("BGM")]
     private AudioClip _bgm;
+    [SerializeField, Header("Ž€–SBGM")]
+    private AudioClip _DeadBGM;
 
 
     public enum ResultMode
@@ -22,9 +24,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private PlayerStatas _playerStatas;
-
-    [SerializeField]
-    private Boss02Manager _boss02Manager;
 
     [SerializeField, Header("Player")]
     private PlayerController _player;
@@ -102,8 +101,8 @@ public class GameManager : MonoBehaviour
             if (_resultMode == ResultMode.GameOver &&
            Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene(
-                    SceneManager.GetActiveScene().name);
+                AudioManager.Instance.PlaySE("Œˆ’èSE");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
 
@@ -149,6 +148,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = _deadEffectTimeScale;
 
         float deadEffectTime = 0f;
+
+        AudioManager.Instance.PlayBGM(_DeadBGM);
         switch (_resultMode)
         {
             case ResultMode.GameOver: deadEffectTime = _deadEffectTime; break;

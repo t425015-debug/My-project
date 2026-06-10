@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
         if(_canMove) _Move();
         _Damage();
         _revelText.text = $"Lv:{_currentLevel}";
-        _remainBulletText.text = $"Bullet{_remainBullet}";
+        _remainBulletText.text = $"Bullet:{_remainBullet}";
         _LevelCheck();
     }
     private void _Move()

@@ -105,6 +105,9 @@ public class Boss : Enemy
     private void _OugiShooting()
     {
         _shootCount += Time.deltaTime;
+
+       
+
         if(_shootCount < _shootTime) return;
 
         for (int i = 0; i < _ougiBulletNum; i++)

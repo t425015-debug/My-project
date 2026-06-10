@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 546174918415751338}
   - component: {fileID: 509733635063654843}
   - component: {fileID: 8971417180002190358}
+  - component: {fileID: -1231131069118893675}
   m_Layer: 7
   m_Name: Enemy3_1
   m_TagString: Enemy
@@ -196,3 +197,15 @@ MonoBehaviour:
   _damageEffectTime: 0.1
   _damageSprite: {fileID: 0}
   _deadEffect: {fileID: 7621274127194761378, guid: 73646ba637c12554783c910fa9cbffb4, type: 3}
+--- !u!114 &-1231131069118893675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7311092809515857295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ecccb3369f9a684e836807781bb3275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

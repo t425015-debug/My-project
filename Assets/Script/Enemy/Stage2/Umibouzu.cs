@@ -45,7 +45,6 @@ public class Umibouzu : Enemy
 
     protected override void _Initialize()
     {
-        AudioManager.Instance.PlaySE("ƒ{ƒX02–Â‚«º");
         StartCoroutine( _BGM());
         _currentAttackCount = 0;
         _attackMode = AttackMode.Normal;

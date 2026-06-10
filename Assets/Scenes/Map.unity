@@ -482,6 +482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerStatas: {fileID: 11400000, guid: 05edc77280ed56841802815e46bcc264, type: 2}
   _flagData: {fileID: 11400000, guid: a37cac1592b8f994fb0c68fe4b37f79c, type: 2}
+  _bgm: {fileID: 8300000, guid: 40ef3894cd4a30f478a4a941ca6f146c, type: 3}
   moveSpeed: 5
   _planetName: {fileID: 1362286942}
   _planetSptiteRenderer: {fileID: 1976540576}

@@ -1,0 +1,609 @@
+fileFormatVersion: 2
+guid: a5760bf9cff10c442831f6facae57478
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6574063454384218810
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_0"
+  - first:
+      213: 5867272095937478018
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_1"
+  - first:
+      213: -3668217829534665766
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_2"
+  - first:
+      213: -150987056283445686
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_3"
+  - first:
+      213: -6203953628688719541
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_4"
+  - first:
+      213: -2777485208940267162
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_5"
+  - first:
+      213: 2720952532414568367
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_6"
+  - first:
+      213: 6027296554973672656
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_7"
+  - first:
+      213: -3066282807718748624
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_8"
+  - first:
+      213: 8211246110853989693
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_9"
+  - first:
+      213: 5573253579059661172
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_10"
+  - first:
+      213: -8404514415078707859
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_11"
+  - first:
+      213: 6117895154125726979
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_12"
+  - first:
+      213: -7213153792919234225
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_13"
+  - first:
+      213: 5332305593244110932
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_14"
+  - first:
+      213: -6698686578011992608
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_15"
+  - first:
+      213: 2299117389175630294
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_16"
+  - first:
+      213: -6931220186779163476
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_17"
+  - first:
+      213: -905302991048071917
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_18"
+  - first:
+      213: -941727738934166895
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_19"
+  - first:
+      213: -6452912685856700575
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_20"
+  - first:
+      213: 251231184858846775
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_21"
+  - first:
+      213: -92766860511285713
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_22"
+  - first:
+      213: 751627377402846146
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_23"
+  - first:
+      213: -4412933868851059155
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_24"
+  - first:
+      213: -7103773283148630032
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_25"
+  - first:
+      213: 172140435013402765
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_26"
+  - first:
+      213: -4375285883138367761
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_27"
+  - first:
+      213: -5522583306025509362
+    second: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_28"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: boss02_1
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 741
+        width: 300
+        height: 265
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64d1d8e7e1c34c4a0800000000000000
+      internalID: -6574063454384218810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss02_2
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 741
+        width: 300
+        height: 265
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28d3ae692ecbc6150800000000000000
+      internalID: 5867272095937478018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss02_3
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 741
+        width: 300
+        height: 265
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad3f4dfa15fd71dc0800000000000000
+      internalID: -3668217829534665766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss02_4
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 741
+        width: 300
+        height: 265
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a461b80821697edf0800000000000000
+      internalID: -150987056283445686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss02_5
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 741
+        width: 300
+        height: 265
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b41630f6b0127e9a0800000000000000
+      internalID: -6203953628688719541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_5"
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 475
+        width: 300
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 669b6301be36479d0800000000000000
+      internalID: -2777485208940267162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss02_7
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 481
+        width: 300
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa7154979e3c2c520800000000000000
+      internalID: 2720952532414568367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss02_
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 477
+        width: 300
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d43423684245a350800000000000000
+      internalID: 6027296554973672656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss02_9
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 475
+        width: 300
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03e590148006275d0800000000000000
+      internalID: -3066282807718748624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss02_10
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 478
+        width: 300
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3582c035d434f170800000000000000
+      internalID: 8211246110853989693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss02_11
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 248
+        width: 300
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3056fba8a3127e450800000000000000
+      internalID: 6117895154125726979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 246
+        width: 300
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4999ce97dab5eb90800000000000000
+      internalID: -7213153792919234225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss02_13
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 0
+        width: 300
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2eeb48280d66bef0800000000000000
+      internalID: -92766860511285713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_23"
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 235
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cb1e811e115e6a00800000000000000
+      internalID: 751627377402846146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss02_15
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 1
+        width: 300
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d26a7d9e60c12c2c0800000000000000
+      internalID: -4412933868851059155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 485
+        width: 1
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a13982e1f59a334da249a9ac72d5a12
+      internalID: 1704014496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss02_6
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 482
+        width: 300
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 202312fa3e55f094fa0af6071dbb6269
+      internalID: -1576119341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 417ce01a859cca24392b9c725c5c49c6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      12: -7213153792919234225
+      Boss02_0: 1704014496
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_10": 5573253579059661172
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_11": -8404514415078707859
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_14": 5332305593244110932
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_15": -6698686578011992608
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_16": 2299117389175630294
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_17": -6931220186779163476
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_18": -905302991048071917
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_19": -941727738934166895
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_20": -6452912685856700575
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_21": 251231184858846775
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_23": 751627377402846146
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_25": -7103773283148630032
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_26": 172140435013402765
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_27": -4375285883138367761
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_28": -5522583306025509362
+      "ChatGPT Image 2026\u5E746\u67088\u65E5 13_01_29_5": -2777485208940267162
+      boss02_: 6027296554973672656
+      boss02_1: -6574063454384218810
+      boss02_10: 8211246110853989693
+      boss02_11: 6117895154125726979
+      boss02_13: -92766860511285713
+      boss02_15: -4412933868851059155
+      boss02_2: 5867272095937478018
+      boss02_3: -3668217829534665766
+      boss02_4: -150987056283445686
+      boss02_5: -6203953628688719541
+      boss02_6: -1576119341
+      boss02_7: 2720952532414568367
+      boss02_9: -3066282807718748624
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

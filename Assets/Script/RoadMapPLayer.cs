@@ -13,6 +13,9 @@ public class RoadMapPLayer : MonoBehaviour
     [SerializeField]
     private FlagData _flagData;
 
+    [SerializeField, Header("BGM")]
+    private AudioClip _bgm;
+
     [SerializeField]  float moveSpeed;
     [SerializeField, Header("PlanetName")]
     private TextMeshProUGUI _planetName;
@@ -142,7 +145,7 @@ private void _LaneMove()
         //移動中は入力を受け付けたくない
 
         isMoving = true;
-
+        AudioManager.Instance.PlaySE("選択SE");
         //targetPosとの差があるなら繰り返す
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
@@ -162,6 +165,7 @@ private void _LaneMove()
 
     void Start()
     {
+        AudioManager.Instance.PlayBGM(_bgm);
         isMoving = false;
         pos = transform.position;
         _currentPlanet = 0;
@@ -192,8 +196,9 @@ private void _LaneMove()
             return;
         }
         if (Input.GetKeyDown(KeyCode.Space))
-        { 
+        {
 
+            AudioManager.Instance.PlaySE("決定SE");
             // ウィンドウが閉じているなら開く
             if (!isWindowOpen)
             {
