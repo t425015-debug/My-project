@@ -20,6 +20,9 @@ public class Boss02Manager : MonoBehaviour
     [SerializeField, Header("表示時間")]
     private float _warningTime;
 
+    [SerializeField, Header("BossBlack02")]
+    private GameObject _bossBlack02;
+
     [SerializeField, Header("ボス登場までの時間")]
     private float _bossStartTime;
 
@@ -69,11 +72,13 @@ public class Boss02Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(_bossStartTime);
         GameObject _BOSSSTART = Instantiate(_bossStart);
+        GameObject _bb2 = Instantiate(_bossBlack02); 
         yield return new WaitForSeconds(_blackStartTime);
         GameObject B = Instantiate(_bossBlack, _canvas);
         yield return new WaitForSeconds(_blackTime);
         Destroy(B);
         Destroy(_BOSSSTART);
+        Destroy(_bb2);
         Instantiate(_boss);
         AudioManager.Instance.PlaySE("ボス02鳴き声");
         yield return new WaitForSeconds(_PlayerCanMoveTime);

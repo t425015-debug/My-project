@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,6 +16,9 @@ public class Umibouzu : Enemy
 
     [SerializeField, Header("BGM")]
     private AudioClip _bgm;
+
+    [SerializeField, Header("")]
+    private AnimationClip _bossIdleAnimation;
 
 
     [SerializeField]
@@ -42,9 +47,13 @@ public class Umibouzu : Enemy
 
     bool _isWaterTower;
     bool _isSpornEnemy;
+    bool _isAttackAnimation;
+
+    Animator _animator;
 
     protected override void _Initialize()
     {
+         _animator = GetComponent<Animator>();
         StartCoroutine( _BGM());
         _currentAttackCount = 0;
         _attackMode = AttackMode.Normal;
