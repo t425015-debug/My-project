@@ -35,9 +35,6 @@ public class Boss03Manager : MonoBehaviour
     [SerializeField, Header("ボスオブジェクト")]
     private GameObject _boss;
 
-    [SerializeField, Header("ボススタートオブジェクト")]
-    private GameObject _bossStart;
-
     [SerializeField, Header("暗転")]
     private GameObject _bossBlack;
 
@@ -68,12 +65,10 @@ public class Boss03Manager : MonoBehaviour
     IEnumerator _SpownBoss()
     {
         yield return new WaitForSeconds(_bossStartTime);
-        GameObject _BOSSSTART = Instantiate(_bossStart);
         yield return new WaitForSeconds(_blackStartTime);
         GameObject B = Instantiate(_bossBlack, _canvas);
         yield return new WaitForSeconds(_blackTime);
         Destroy(B);
-        Destroy(_BOSSSTART);
         Instantiate(_boss);
         AudioManager.Instance.PlaySE("ボス03鳴き声");
         yield return new WaitForSeconds(_PlayerCanMoveTime);
