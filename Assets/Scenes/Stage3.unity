@@ -633,7 +633,7 @@ MonoBehaviour:
   _blackStartTime: 0.1
   _blackTime: 0.1
   _PlayerCanMoveTime: 1
-  _boss: {fileID: 8854716006964819292, guid: 2a631c57c81f4b14da8c397d20e8bd4a, type: 3}
+  _boss: {fileID: 3173505767122610275, guid: 2a631c57c81f4b14da8c397d20e8bd4a, type: 3}
   _bossBlack: {fileID: 2648074710285667589, guid: 0b528c5b519f1d448b9561062bc9900d, type: 3}
 --- !u!1 &1416576409
 GameObject:
