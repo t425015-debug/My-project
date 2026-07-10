@@ -597,7 +597,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &855414248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1054,7 +1054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1651758777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1070,15 +1070,14 @@ MonoBehaviour:
   _player: {fileID: 645008536}
   _warnings: {fileID: 8300000, guid: 2edf5f472392a3f459b46aae8ae2c5a5, type: 3}
   _warningObject: {fileID: 7743994409603494353, guid: bfcccfe633ff4cc4dae03b2525ac76cf, type: 3}
-  _warningStartTime: 10
+  _warningStartTime: 1
   _warningTime: 3
   _bossBlack02: {fileID: 2457685830865403567, guid: 6bc92ff7b17d5594493b345b4d20ed44, type: 3}
   _bossStartTime: 0
-  _blackStartTime: 5
-  _blackTime: 0.7
-  _PlayerCanMoveTime: 1.5
+  _blackStartTime: 0.1
+  _blackTime: 0.1
+  _PlayerCanMoveTime: 1
   _boss: {fileID: 5358721068516642471, guid: dacbfc3a932860b44a12ae4f6e682c31, type: 3}
-  _bossStart: {fileID: 920082334193110392, guid: 76f34012e9f8724498e5180bdc5fd774, type: 3}
   _bossBlack: {fileID: 2648074710285667589, guid: 0b528c5b519f1d448b9561062bc9900d, type: 3}
 --- !u!4 &1651758778
 Transform:

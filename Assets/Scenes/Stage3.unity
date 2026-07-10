@@ -596,7 +596,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1228465860
 Transform:
   m_ObjectHideFlags: 0
@@ -627,14 +627,13 @@ MonoBehaviour:
   _player: {fileID: 421378557}
   _warnings: {fileID: 8300000, guid: 2edf5f472392a3f459b46aae8ae2c5a5, type: 3}
   _warningObject: {fileID: 7743994409603494353, guid: bfcccfe633ff4cc4dae03b2525ac76cf, type: 3}
-  _warningStartTime: 0
-  _warningTime: 0
+  _warningStartTime: 1
+  _warningTime: 3
   _bossStartTime: 0
-  _blackStartTime: 0
-  _blackTime: 0
-  _PlayerCanMoveTime: 0
+  _blackStartTime: 0.1
+  _blackTime: 0.1
+  _PlayerCanMoveTime: 1
   _boss: {fileID: 8854716006964819292, guid: 2a631c57c81f4b14da8c397d20e8bd4a, type: 3}
-  _bossStart: {fileID: 0}
   _bossBlack: {fileID: 2648074710285667589, guid: 0b528c5b519f1d448b9561062bc9900d, type: 3}
 --- !u!1 &1416576409
 GameObject:
@@ -744,7 +743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1477022672
 MonoBehaviour:
   m_ObjectHideFlags: 0

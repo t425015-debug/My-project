@@ -96,29 +96,11 @@ public class Stage1 : MonoBehaviour
                 case 0:
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
-                        _action = _Action._Shop;
-                        for (int i = 0; i < _base.items.Count; i++)
-                        {
-                            _itemTexts[i].text = _base.items[i]._name;
-                        }
-                        return;
-                    }
-                    break;
-                case 1:
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
                         _action = _Action.PowerUp;
                         return;
                     }
                     break;
-                case 2:
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        _action = _Action._Bag;
-                        return;
-                    }
-                    break;
-                case 3:
+                case 1:
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
                         SceneManager.LoadScene("Map");
@@ -153,7 +135,7 @@ public class Stage1 : MonoBehaviour
             _currentMove -= 2;
         }
 
-        _currentMove = Mathf.Clamp(_currentMove, 0, 3);
+        _currentMove = Mathf.Clamp(_currentMove, 0, 1);
     }
 
     void _ShopItemSelection()
@@ -213,7 +195,7 @@ public class Stage1 : MonoBehaviour
         //selectMoveが2の時はmoveText[2]の色を青に変える、それ以外を黒
         //selectMoveが3の時はText[3]の色を青に変える、それ以外を黒
         // actionTexts[0]かactionTexts[1]
-        for (int i = 0; i <= 3; i++)
+        for (int i = 0; i <= 1; i++)
         {
             if (_currentMove == i && _action == _Action.None)
             {
